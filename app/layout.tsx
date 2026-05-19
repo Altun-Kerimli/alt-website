@@ -5,6 +5,10 @@ import "@/app/globals.css";
 export const metadata: Metadata = {
   title: "ALT",
   description: "Technical Infrastructure Platform",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
