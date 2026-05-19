@@ -51,6 +51,24 @@ export default function PortfolioPage() {
         <p className="text-xs text-neutral-500 mt-1">Selected technical works and deployments.</p>
       </header>
 
+      {/* Meta Project System Highlight Banner */}
+      <div className="border border-neutral-800 bg-neutral-900/10 rounded p-5 sm:p-6 space-y-3 font-mono">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <h2 className="text-sm font-bold text-neutral-200">ALT</h2>
+        </div>
+        <p className="text-xs text-neutral-400 leading-relaxed max-w-3xl">
+          This platform itself acts as a live, self-contained project architecture. It unifies a responsive freelance portfolio index, an isolated secure administrative CMS dashboard linked to remote PostgreSQL instances, and deep media automation pipeline toolsets built completely on a modular server infrastructure.
+        </p>
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          <span className="bg-neutral-900 border border-neutral-800 text-[10px] px-2 py-0.5 text-neutral-400 rounded">next.js</span>
+          <span className="bg-neutral-900 border border-neutral-800 text-[10px] px-2 py-0.5 text-neutral-400 rounded">app router</span>
+          <span className="bg-neutral-900 border border-neutral-800 text-[10px] px-2 py-0.5 text-neutral-400 rounded">supabase</span>
+          <span className="bg-neutral-900 border border-neutral-800 text-[10px] px-2 py-0.5 text-neutral-400 rounded">nextauth</span>
+        </div>
+      </div>
+
+      {/* Equal Length / Justified Tabs Navigation System */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-1 border-b border-neutral-900 pb-px text-center">
         {CATEGORIES.map((tab) => (
           <button
