@@ -39,3 +39,32 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# =========================================
+# PYTHON BACKEND & MEDIA ENGINE ADDITIONS
+# =========================================
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Media Engine pipeline directories
+/downloads/
+/backend/downloads/
+
+# Stray media files (failsafe)
+*.mp4
+*.mp3
+*.wav
+*.webm
+*.m4a
+*.mkv
+
+# Security & Auth Tokens
+cookies.txt
