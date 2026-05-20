@@ -24,6 +24,9 @@ export default function MediaEnginePage() {
   const [error, setError] = useState("");
   const [mounted, setMounted] = useState(false);
 
+  // Dynamic base URL for local development vs. production (Vercel/Render)
+  const baseUrl = process.env.NEXT_PUBLIC_MEDIA_ENGINE_URL || "http://localhost:8000";
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -48,7 +51,7 @@ export default function MediaEnginePage() {
     }
 
     try {
-      const res = await fetch(`http://localhost:8000/api/scan?url=${encodeURIComponent(url)}`);
+      const res = await fetch(`${baseUrl}/api/scan?url=${encodeURIComponent(url)}`);
       if (!res.ok) throw new Error("Could not parse destination stream index.");
       const data = await res.json();
       
@@ -90,7 +93,7 @@ export default function MediaEnginePage() {
       formData.append("task_id", taskId);
 
       try {
-        const response = await fetch("http://localhost:8000/api/upload", {
+        const response = await fetch(`${baseUrl}/api/upload`, {
           method: "POST",
           body: formData,
         });
@@ -117,7 +120,7 @@ export default function MediaEnginePage() {
       }
     } else {
       // GET logic for remote URLs (Existing architecture)
-      const downloadUrl = `http://localhost:8000/api/download?url=${encodeURIComponent(url)}&mode=${mode}&format_selection=${selectedFormat}&task_id=${taskId}`;
+      const downloadUrl = `${baseUrl}/api/download?url=${encodeURIComponent(url)}&mode=${mode}&format_selection=${selectedFormat}&task_id=${taskId}`;
       
       const a = document.createElement('a');
       a.href = downloadUrl;
@@ -135,7 +138,7 @@ export default function MediaEnginePage() {
   const handleCancel = async () => {
     if (!currentTaskId) return;
     try {
-      await fetch("http://localhost:8000/api/cancel", {
+      await fetch(`${baseUrl}/api/cancel`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ task_id: currentTaskId }),
@@ -151,7 +154,7 @@ export default function MediaEnginePage() {
   if (!mounted) return null;
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4 mt6 space-y-8">
+    <div className="w-full max-w-2xl mx-auto px-4 mt-6 space-y-8">
       <header className="border-b border-neutral-800 pb-4">
         <h1 className="text-xl font-mono font-bold tracking-tight">/tools/media</h1>
         <p className="text-xs text-neutral-500 mt-1">Multi-threaded video merging and audio extraction matrix.</p>
@@ -313,7 +316,7 @@ export default function MediaEnginePage() {
                       className="text-red-500 border border-red-900/40 bg-red-950/10 px-3 py-1 rounded hover:bg-red-950/40 hover:border-red-500 transition font-bold"
                     >
                       Abrupt Kill Process [X]
-                </button>
+                    </button>
                   </div>
                 </div>
               )}
