@@ -33,7 +33,12 @@ async def scan_media(url: str):
     if not url:
         raise HTTPException(status_code=400, detail="URL target missing.")
     
-    ydl_opts = {'quiet': True}
+    # NETWORK FIX: Force IPv4 to bypass datacenter IPv6 bot-blocks, and bind Node.js
+    ydl_opts = {
+        'quiet': True,
+        'force_ipv4': True,
+        'javascript_runtimes': ['node']
+    }
     
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -60,9 +65,12 @@ async def download_media(url: str, mode: str, format_selection: str, task_id: st
         raise HTTPException(status_code=400, detail="Resource token missing.")
 
     outtmpl = f"{DOWNLOAD_DIR}/{task_id}.%(ext)s"
+    
     common_opts = {
         'outtmpl': outtmpl,
         'quiet': True,
+        'force_ipv4': True,
+        'javascript_runtimes': ['node'],
         'concurrent_fragment_downloads': 16,
     }
 
@@ -116,7 +124,6 @@ async def download_media(url: str, mode: str, format_selection: str, task_id: st
         active_processes.pop(task_id, None)
         raise HTTPException(status_code=400, detail=str(e))
 
-# --- NEW FILE UPLOAD ENDPOINT ---
 @app.post("/api/upload")
 async def process_local_file(
     file: UploadFile = File(...),
@@ -128,7 +135,6 @@ async def process_local_file(
     input_path = f"{DOWNLOAD_DIR}/input_{task_id}.{input_ext}"
     output_path = f"{DOWNLOAD_DIR}/{task_id}.{format_selection}"
 
-    # Save incoming physical file to disk
     with open(input_path, "wb") as buffer:
         buffer.write(await file.read())
 
@@ -139,7 +145,6 @@ async def process_local_file(
     background_tasks.add_task(cleanup_both)
 
     try:
-        # Construct raw FFmpeg separation command
         cmd = ["ffmpeg", "-y", "-i", input_path, "-vn"]
         if format_selection == "mp3":
             cmd.extend(["-c:a", "libmp3lame", "-b:a", "192k"])
