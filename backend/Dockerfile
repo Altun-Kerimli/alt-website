@@ -1,9 +1,9 @@
 # Use official lightweight Python image
 FROM python:3.11-slim
 
-# Install system dependencies (FFmpeg is required for yt-dlp merging)
+# Install system dependencies: FFmpeg for processing, Node.js for signature decryption
 RUN apt-get update && \
-    apt-get install -y ffmpeg aria2 && \
+    apt-get install -y ffmpeg nodejs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
