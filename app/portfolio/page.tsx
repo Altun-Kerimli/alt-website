@@ -26,6 +26,47 @@ export default function PortfolioPage() {
   const [activeTab, setActiveTab] = useState("websites");
   const [loading, setLoading] = useState(true);
 
+  // --- UPDATED ROUTING LOGIC: Catches native hashes AND Next.js soft-clicks ---
+  useEffect(() => {
+    const syncTabWithHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && CATEGORIES.some((c) => c.id === hash)) {
+        setActiveTab(hash);
+      }
+    };
+
+    // 1. Trigger on initial page load
+    syncTabWithHash();
+
+    // 2. Trigger on native browser back/forward buttons
+    window.addEventListener("hashchange", syncTabWithHash);
+
+    // 3. Trigger on Next.js soft-navigation clicks from the dropdown
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+      if (anchor && anchor.href.includes("/portfolio#")) {
+        const hash = anchor.href.split("#")[1];
+        if (hash && CATEGORIES.some((c) => c.id === hash)) {
+          setActiveTab(hash);
+        }
+      }
+    };
+    document.addEventListener("click", handleAnchorClick);
+
+    return () => {
+      window.removeEventListener("hashchange", syncTabWithHash);
+      document.removeEventListener("click", handleAnchorClick);
+    };
+  }, []);
+
+  // Update URL silently when user clicks a tab button manually
+  const handleTabSwitch = (id: string) => {
+    setActiveTab(id);
+    window.history.pushState(null, "", `#${id}`);
+  };
+  // ---------------------------------------------------------
+
   useEffect(() => {
     async function fetchPortfolios() {
       setLoading(true);
@@ -73,7 +114,7 @@ export default function PortfolioPage() {
         {CATEGORIES.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => handleTabSwitch(tab.id)}
             className={`font-mono text-[11px] sm:text-xs py-2.5 border-b-2 transition truncate ${
               activeTab === tab.id
                 ? "border-neutral-100 text-neutral-100 font-bold bg-neutral-900/30"
