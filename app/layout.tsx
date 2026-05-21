@@ -29,6 +29,7 @@ export default function RootLayout({
               <div className="group relative py-2">
                 <Link href="/portfolio" className="hover:text-neutral-100 transition flex items-center gap-1">
                   portfolio
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50 transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
                 </Link>
                 {/* Hover bridge */}
                 <div className="absolute top-[100%] left-0 w-full h-2"></div>
@@ -46,6 +47,7 @@ export default function RootLayout({
               <div className="group relative py-2">
                 <Link href="/tools" className="hover:text-neutral-100 transition flex items-center gap-1">
                   tools
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50 transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
                 </Link>
                 {/* Hover bridge */}
                 <div className="absolute top-[100%] left-0 w-full h-2"></div>
