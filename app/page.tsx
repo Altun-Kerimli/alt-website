@@ -12,9 +12,9 @@ export default function HomePage() {
           <div className="font-mono text-sm font-bold">/portfolio</div>
           <div className="text-xs text-neutral-500 mt-1">Background and project index.</div>
         </Link>
-        <Link href="/admin" className="p-4 border border-neutral-800 rounded hover:border-neutral-700 transition block">
-          <div className="font-mono text-sm font-bold">/admin</div>
-          <div className="text-xs text-neutral-500 mt-1">Access master controls dashboard.</div>
+        <Link href="/tools" className="p-4 border border-neutral-800 rounded hover:border-neutral-700 transition block">
+          <div className="font-mono text-sm font-bold">/tools</div>
+          <div className="text-xs text-neutral-500 mt-1">Utility scripts.</div>
         </Link>
       </div>
     </div>

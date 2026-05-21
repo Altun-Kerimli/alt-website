@@ -13,6 +13,11 @@ export default function ToolsPage() {
           <div className="font-mono text-sm font-bold">Media Engine</div>
           <div className="text-xs text-neutral-500 mt-1">yt-dlp extraction and audio separation protocol.</div>
         </Link>
+
+        <Link href="/tools/decoder" className="p-4 border border-neutral-800 rounded hover:border-neutral-700 transition block">
+          <div className="font-mono text-sm font-bold">Decoder</div>
+          <div className="text-xs text-neutral-500 mt-1">Morse and decimal conversion utilities.</div>
+        </Link>
         
         {/* Placeholder for future grid expansions */}
         <div className="p-4 border border-neutral-800/50 border-dashed rounded opacity-50 block">
