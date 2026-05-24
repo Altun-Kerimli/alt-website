@@ -1,28 +1,51 @@
-import Link from "next/link";
+import PortfolioSection from "./components/PortfolioSection";
+import AboutSection from "./components/AboutSection";
+import ContactSection from "./components/ContactSection";
 
 export default function HomePage() {
   return (
-    <div className="space-y-6 max-w-2xl">
-      <h1 className="text-2xl font-mono tracking-tight font-bold">alt.sys</h1>
-      <p className="text-neutral-400 leading-relaxed text-sm">
-        Central hub for technical engineering execution, freelance architecture, and media automation tools.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-        <Link href="/portfolio" className="p-4 border border-neutral-800 rounded hover:border-neutral-700 transition block">
-          <div className="font-mono text-sm font-bold">/portfolio</div>
-          <div className="text-xs text-neutral-500 mt-1">Background and project index.</div>
-        </Link>
-
-        <Link href="/tools" className="p-4 border border-neutral-800 rounded hover:border-neutral-700 transition block">
-          <div className="font-mono text-sm font-bold">/tools</div>
-          <div className="text-xs text-neutral-500 mt-1">Utility scripts.</div>
-        </Link>
+    <div className="w-full flex flex-col items-center">
+      
+      {/* Hero Section */}
+      <section className="relative w-full bg-white dark:bg-black px-6 md:px-12 flex flex-col items-center justify-center text-center animate-in fade-in duration-700 min-h-[calc(100vh-73px)] transition-colors duration-300">
         
-        <Link href="/contact" className="p-4 border border-neutral-800 rounded hover:border-neutral-700 transition block">
-          <div className="font-mono text-sm font-bold">/contact</div>
-          <div className="text-xs text-neutral-500 mt-1">Reach out to me.</div>
-        </Link>
-      </div>
+        {/* Razor-thin Red Top Line */}
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-red-600"></div>
+        
+        <div className="max-w-4xl mx-auto w-full flex flex-col items-center">
+          
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-black dark:text-white mb-6 transition-colors duration-300">
+            Hello there.<br/>
+            Welcome to <span className="text-red-600">ALT</span> INC. 
+          </h1>
+          
+          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-xl max-w-2xl font-medium mx-auto mt-4 transition-colors duration-300">
+            I build web applications, Telegram bots, and automated digital tools. Clean code, reliable infrastructure, and straightforward execution.
+          </p>
+
+          {/* Bouncing Red Gradient Line (Scroll Indicator) */}
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent to-red-600"></div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="w-full bg-neutral-50 dark:bg-neutral-950 border-y border-black/5 dark:border-white/5 py-16 md:py-16 px-6 md:px-12 scroll-mt-24 transition-colors duration-300">
+        <PortfolioSection />
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="w-full bg-white dark:bg-black py-16 md:py-16 px-6 md:px-12 scroll-mt-24 transition-colors duration-300">
+        <AboutSection />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="w-full bg-neutral-50 dark:bg-neutral-950 border-t border-black/5 dark:border-white/5 py-16 md:py-16 px-6 md:px-12 scroll-mt-24 transition-colors duration-300">
+        <ContactSection />
+      </section>
+      
     </div>
   );
 }

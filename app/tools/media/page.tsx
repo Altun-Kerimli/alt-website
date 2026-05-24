@@ -2,13 +2,13 @@
 
 export default function MediaEngineDisabledPage() {
   return (
-    <div className="w-full max-w-2xl mx-auto px-4 mt-12 space-y-8">
-      <header className="border-b border-neutral-800 pb-4">
-        <h1 className="text-xl font-mono font-bold tracking-tight text-neutral-600">/tools/media [OFFLINE]</h1>
-        <p className="text-xs text-neutral-500 mt-1">This module has been temporarily suspended.</p>
+    <div className="w-full max-w-2xl bg-white dark:bg-black mx-auto px-4 mt-12 space-y-4">
+      <header className="border-b border-black/10 dark:border-white/10 pb-4 transition-colors">
+        <h1 className="text-xl font-mono font-bold tracking-tight text-neutral-600 dark:text-neutral-300">/tools/media <span className="text-red-600">[OFFLINE]</span></h1>
+        <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">This module has been temporarily suspended.</p>
       </header>
-      <div className="p-4 border border-neutral-800 border-dashed rounded bg-neutral-900/10 text-center">
-        <span className="text-xs font-mono text-neutral-500">Awaiting infrastructure upgrades. Check back later.</span>
+      <div className="p-6 border border-black/10 dark:border-white/10 border-dashed rounded-xl bg-neutral-50 dark:bg-neutral-900/50 text-center transition-colors">
+        <span className="text-xs font-mono font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">Awaiting infrastructure upgrades. Check back later.</span>
       </div>
     </div>
   );
@@ -170,7 +170,7 @@ export default function MediaEngineDisabledPage() {
 //   if (!mounted) return null;
 
 //   return (
-//     <div className="w-full max-w-2xl mx-auto px-4 mt-6 space-y-8">
+//     <div className="w-full max-w-2xl mx-auto px-4 mt-6 space-y-2">
 //       <header className="border-b border-neutral-800 pb-4">
 //         <h1 className="text-xl font-mono font-bold tracking-tight">/tools/media</h1>
 //         <p className="text-xs text-neutral-500 mt-1">Multi-threaded video merging and audio extraction matrix.</p>
