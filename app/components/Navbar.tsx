@@ -3,16 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import PreferencesMenu from "./PreferencesMenu";
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch for the theme toggle button
   useEffect(() => setMounted(true), []);
 
   // Smart Navbar Scroll Logic
@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed w-full top-0 z-50 border-b border-black/5 dark:border-white/10 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl px-6 py-4 md:px-12 transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"}`}>
+      <nav className={`fixed w-full top-0 z-50 border-b border-black/5 dark:border-white/10 bg-white/80 dark:bg-black/80 backdrop-blur-xl px-6 py-4 md:px-12 transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"}`}>
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link href="/" className="font-bold tracking-tight text-lg text-black dark:text-white hover:text-amber-500 transition-colors">
             <span className="text-amber-500 mr-1">/</span>ALT
@@ -37,7 +37,7 @@ export default function Navbar() {
           {/* DESKTOP MENU (Hidden on Mobile) */}
           <div className="hidden md:flex gap-6 text-sm font-medium text-neutral-500 dark:text-neutral-400 items-center">
             
-            {/* EXACT PORTFOLIO DROPDOWN */}
+            {/* Portfolio Dropdown */}
             <div className="group relative py-2">
               <Link href="/#portfolio" className="hover:text-red-600 transition flex items-center gap-1.5">
                 Portfolio
@@ -57,7 +57,7 @@ export default function Navbar() {
             <Link href="/#contact" className="py-2 hover:text-red-600 transition-colors">Contact</Link>
             <div className="group relative py-2"> | </div>
 
-            {/* EXACT TOOLS DROPDOWN */}
+            {/* Tools Dropdown */}
             <div className="group relative py-2">
               <Link href="/tools" className="hover:text-red-600 transition flex items-center gap-1.5">
                 Tools
@@ -73,16 +73,13 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Theme Toggle */}
-            {mounted && (
-              <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="ml-2 p-1.5 border border-black/10 dark:border-white/10 rounded hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
-                {theme === 'dark' ? '☀️' : '🌙'}
-              </button>
-            )}
+            {/* Gear Dropdown (Theme & Language) */}
+            <PreferencesMenu />
+            
           </div>
 
           {/* MOBILE HAMBURGER ICON */}
-          <button className="md:hidden p-2 text-black dark:text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <button className="md:hidden p-2 text-black dark:text-white focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
           </button>
         </div>
@@ -90,17 +87,48 @@ export default function Navbar() {
 
       {/* MOBILE MENU DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed top-[60px] left-0 w-full bg-white dark:bg-neutral-950 border-b border-black/5 dark:border-white/10 shadow-xl z-40 p-6 flex flex-col gap-5 text-base font-bold text-black dark:text-white">
+        <div className="md:hidden fixed top-[60px] left-0 w-full bg-white dark:bg-black border-b border-black/5 dark:border-white/10 shadow-xl z-40 p-6 flex flex-col gap-5 text-base font-bold text-black dark:text-white h-[calc(100vh-60px)] overflow-y-auto">
+          
           <Link href="/#portfolio" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
           <Link href="/#about" onClick={() => setMobileMenuOpen(false)}>About Me</Link>
           <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
           <Link href="/tools" onClick={() => setMobileMenuOpen(false)}>Tools</Link>
-          <div className="pt-4 border-t border-black/10 dark:border-white/10">
-            {mounted && (
-              <button onClick={() => { setTheme(theme === 'dark' ? 'light' : 'dark'); setMobileMenuOpen(false); }} className="flex items-center gap-2">
-                {theme === 'dark' ? '☀️ Switch to Light Mode' : '🌙 Switch to Dark Mode'}
-              </button>
-            )}
+          
+          {/* Mobile Preferences Section */}
+          <div className="pt-6 mt-2 border-t border-black/10 dark:border-white/10 flex flex-col gap-6">
+            
+            <div className="flex flex-col gap-3">
+              <span className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest">Appearance</span>
+              {mounted && (
+                <button onClick={() => { setTheme(resolvedTheme === 'dark' ? 'light' : 'dark'); }} className="flex items-center gap-3 text-sm font-medium">
+                  {resolvedTheme === 'dark' ? (
+                    <><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-400"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Switch to Light Mode</>
+                  ) : (
+                    <><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-500"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Switch to Dark Mode</>
+                  )}
+                </button>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <span className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest">Language</span>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { code: "EN", label: "English", flag: "🇬🇧" },
+                  { code: "TR", label: "Türkçe", flag: "🇹🇷" },
+                  { code: "AZ", label: "Azərbaycan", flag: "🇦🇿" },
+                  { code: "UK", label: "Українська", flag: "🇺🇦" },
+                  { code: "RU", label: "Русский", flag: "🇷🇺" },
+                  { code: "DE", label: "Deutsch", flag: "🇩🇪" },
+                ].map((lang) => (
+                  <button key={lang.code} className="flex items-center gap-2 text-sm font-medium hover:text-red-600 transition-colors text-left">
+                    <span className="text-base">{lang.flag}</span>
+                    <span>{lang.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       )}
