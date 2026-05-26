@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import PreferencesMenu from "./PreferencesMenu";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(true);
@@ -16,7 +16,9 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-  const n = useTranslations('Navbar'); // Connects to the "Navbar" object in your JSON
+  
+  const n = useTranslations('Navbar');
+  const currentLocale = useLocale(); // Properly fetches the active language
 
   // Smart Navbar Scroll Logic
   useEffect(() => {
@@ -28,6 +30,22 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  // Straightforward execution for language switching
+  const handleLanguageChange = (newLocale: string) => {
+    const currentPath = window.location.pathname;
+    const newPath = currentPath.replace(`/${currentLocale}`, `/${newLocale}`);
+    window.location.href = newPath; 
+  };
+
+  const LANGUAGES = [
+    { code: 'en', label: '🇬🇧 English' },
+    { code: 'tr', label: '🇹🇷 Türkçe' },
+    { code: 'az', label: '🇦🇿 Azərbaycan' },
+    { code: 'uk', label: '🇺🇦 Українська' },
+    { code: 'ru', label: '🇷🇺 Русский' },
+    { code: 'de', label: '🇩🇪 Deutsch' }
+  ];
 
   return (
     <>
@@ -98,12 +116,12 @@ export default function Navbar() {
           <Link href="/tools" onClick={() => setMobileMenuOpen(false)}>{n('tools')}</Link>
           
           {/* Mobile Preferences Section */}
-          <div className="pt-6 mt-2 border-t border-black/10 dark:border-white/10 flex flex-col gap-6">
+          <div className="pt-6 mt-2 border-t border-black/10 dark:border-white/10 flex flex-col gap-8 pb-10">
             
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               <span className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest">{n('appearance')}</span>
               {mounted && (
-                <button onClick={() => { setTheme(resolvedTheme === 'dark' ? 'light' : 'dark'); }} className="flex items-center gap-3 text-sm font-medium">
+                <button onClick={() => { setTheme(resolvedTheme === 'dark' ? 'light' : 'dark'); }} className="flex items-center gap-3 text-sm font-medium px-2">
                   {resolvedTheme === 'dark' ? (
                     <><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-400"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>{n('light_theme')}</>
                   ) : (
@@ -115,23 +133,29 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-3">
               <span className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest">{n('language')}</span>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { code: "EN", label: "English", flag: "🇬🇧" },
-                  { code: "TR", label: "Türkçe", flag: "🇹🇷" },
-                  { code: "AZ", label: "Azərbaycan", flag: "🇦🇿" },
-                  { code: "UK", label: "Українська", flag: "🇺🇦" },
-                  { code: "RU", label: "Русский", flag: "🇷🇺" },
-                  { code: "DE", label: "Deutsch", flag: "🇩🇪" },
-                ].map((lang) => (
-                  <button key={lang.code} className="flex items-center gap-2 text-sm font-medium hover:text-red-600 transition-colors text-left">
-                    <span className="text-base">{lang.flag}</span>
-                    <span>{lang.label}</span>
+              
+              {/* Custom Mobile Select List (Replaces native <select>) */}
+              <div className="flex flex-col gap-2 mt-1">
+                {LANGUAGES.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => handleLanguageChange(lang.code)}
+                    className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-bold transition-all ${
+                      currentLocale === lang.code 
+                        ? 'bg-red-600/10 text-red-600 dark:bg-red-600/20 border border-red-600/20' 
+                        : 'bg-neutral-50 dark:bg-neutral-900 text-black dark:text-white border border-black/5 dark:border-white/5 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                    }`}
+                  >
+                    {lang.label}
+                    {currentLocale === lang.code && (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    )}
                   </button>
                 ))}
               </div>
-            </div>
 
+            </div>
+            
           </div>
         </div>
       )}
