@@ -1,0 +1,129 @@
+{
+  "Basic": {
+    "name": "Altun Karimli"
+    
+  },
+  "Hero": {
+    "greeting": "Hello there.",
+    "welcome": "Welcome to",
+    "description": "I build web applications, Telegram bots, and automated digital tools. Clean code, reliable infrastructure, and straightforward execution."
+  },
+  "Navbar": {
+    "portfolio": "Portfolio",
+    "about": "About Me",
+    "contact": "Contact",
+    "tools": "Tools",
+    "decoder": "Decoder",
+    "media": "Media",
+    "offline": "Offline",
+    "online": "Online",
+
+    "websites": "Web Sites",
+    "tg_bots": "Telegram Bots",
+    "mobile": "Mobile Apps",
+    "automation": "Automation",
+    "others": "Others",
+
+    "appearance": "Appearance",
+    "dark_theme": "Dark Theme",
+    "light_theme": "Light Theme",
+    "language": "Language"
+  },
+  "Portfolio": {
+    "title": "Portfolio",
+    "title_description": "Freelance projects and deployments.",
+    "meta_website": "WEBSITE",
+    "meta_description": "This platform itself acts as a live, self-contained demonstrations of my abilities and experience. It unifies a responsive freelance portfolio index, an isolated secure administrative CMS dashboard linked to remote PostgreSQL instances, and <toolLink>toolsets</toolLink> built completely on a modular server infrastructure.",
+    "loading_catalog": "Loading catalog...",
+    "no_project_records": "No project records found under this track.",
+    "launch": "Launch",
+
+    "websites": "Web Sites",
+    "tg_bots": "Telegram Bots",
+    "mobile": "Mobile Apps",
+    "automation": "Automation",
+    "others": "Others"
+  },
+  "About": {
+    "title": "About Me",
+    "description": "Software engineering, infrastructure, and core principles.",
+    "bsc": "B.Sc. Graduate",
+    "msc": "M.Sc. Student",
+    "present": "Present",
+    "text1": "I am a Software Engineer and a Computer Engineering Master's student at <sauLink>SAU</sauLink>, driven to build systems that truly last. My background spans from robust enterprise backend development to integrating modern AI workflows. I prioritize function over hype, leveraging these tools to solve real problems and simplify complex operations.",
+    "text2": "Writing the codebase is only the first step. I take full responsibility for the entire digital lifecycle of my projects - from initial architecture to production. Whether it requires provisioning the host server, calibrating domains, or providing ongoing maintenance and scaling updates, I ensure the systems I deliver remain stable and secure long after the initial launch. You can view my works <portfolioLink>here</portfolioLink>.",
+    "text3": "Away from the keyboard, I stay grounded through physical handcrafts and analyzing complex designs. I am also a linguist, comfortably navigating Turkic, Slavic, and Germanic languages. These pursuits remind me that the best systems - whether in spoken language, carpentry, or software - are built on patience, structural integrity, and continuous learning.",
+    "here": "here."
+
+  },
+  "Contact": {
+    "title": "Contact Me",
+    "description": "Feel free to reach out for system deployments, project collaborations, or general inquiries. Send a message, and I will get back to you promptly.",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "Email"
+  },
+  "Tools": {
+    "title": "Tools",
+    "description": "Utility scripts and convenience tools.",
+    "media_engine": "Media & Audio Downloader",
+    "media_engine_description": "yt-dlp extraction and audio separation.",
+    "decoder": "Decoder",
+    "decoder_description": "Decimal and Morse Code conversion utilities.",
+
+    "awaiting_deployment": "Awaiting deployment...",
+    "slot_available": "Slot available."
+  },
+  "MediaEngine": {
+    "title": "Media & Audio Downloader",
+    "description": "This module has been temporarily suspended."
+
+  },
+  "Decoder": {
+    "title": "Decoder",
+    "description": "Decimal and Morse Code conversion utilities.",
+    "tools": "Tools",
+    "copy": "Copy",
+    "copied": "Copied",
+    "tabs_base": "Base Converter",
+    "tabs_morse": "Morse Cipher",
+    "info_btn": "info",
+    "info_base_title": "Numerical Radix Conversions",
+    "info_base_desc": "This tool translates data between structural numerical bases instantaneously.",
+    "info_base_dec_label": "Decimal (Base 10):",
+    "info_base_dec_desc": "Standard human counting system (0-9).",
+    "info_base_bin_label": "Binary (Base 2):",
+    "info_base_bin_desc": "Core machine state logic (0, 1).",
+    "info_base_oct_label": "Octal (Base 8):",
+    "info_base_oct_desc": "Legacy computing file permissions (0-7).",
+    "info_base_hex_label": "Hexadecimal (Base 16):",
+    "info_base_hex_desc": "Modern memory addresses and color codes (0-9, A-F).",
+    "info_morse_alphabet": "{language} Alphabet",
+    "info_morse_numbers": "Numbers",
+    "base_matrix": "Base Data Matrix",
+    "base_dec": "Decimal (10)",
+    "base_bin": "Binary (2)",
+    "base_oct": "Octal (8)",
+    "base_hex": "Hexadecimal (16)",
+    "cipher_engine": "Cipher Engine",
+    "lang_eng": "ENG",
+    "lang_rus": "RUS",
+    "lang_tur": "TUR",
+    "mode_to_morse": "Text → Morse",
+    "mode_to_text": "Morse → Text",
+    "input_text": "Input Text ({language})",
+    "input_morse": "Input Morse Code",
+    "placeholder_text": "Type payload here...",
+    "output_morse": "Output Morse Code",
+    "output_text": "Output Text ({language})"
+  },
+  "Maintenance": {
+    "title": "Under Maintenance",
+    "description": "Currently undergoing maintenance. Please check back later.",
+    "status": "This module has been temporarily suspended.",
+    "status_offline": "Offline",
+    "status_online": "Online"
+  }
+}
+
+            

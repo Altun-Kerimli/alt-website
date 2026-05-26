@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "next/link"; // Swap to your routing file if using next-intl localized links
+
+import { useTranslations } from 'next-intl';
 
 export default function AboutSection() {
   const [mounted, setMounted] = useState(false);
+  const a = useTranslations('About');
 
   useEffect(() => {
     setMounted(true);
@@ -51,7 +54,7 @@ export default function AboutSection() {
                 </div>
                 <div className="flex flex-col ps-4">
                   <span className="text-sm font-bold text-black dark:text-white transition-colors duration-300">SAÜ</span>
-                  <span className="text-xs text-neutral-600 dark:text-neutral-400 font-medium flex items-center gap-1.5 transition-colors duration-300">M.Sc. Student | 2025 - Present</span>
+                  <span className="text-xs text-neutral-600 dark:text-neutral-400 font-medium flex items-center gap-1.5 transition-colors duration-300">{a('msc')} | 2025 - {a('present')}</span>
                 </div>
               </div>
 
@@ -62,7 +65,7 @@ export default function AboutSection() {
                 </div>
                 <div className="flex flex-col ps-4">
                   <span className="text-sm font-bold text-black dark:text-white transition-colors duration-300">SUBÜ</span>
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400 font-medium transition-colors duration-300">B.Sc. Graduate | 2020 - 2025</span>
+                  <span className="text-xs text-neutral-500 dark:text-neutral-400 font-medium transition-colors duration-300">{a('bsc')} | 2020 - 2025</span>
                 </div>
               </div>
               
@@ -74,20 +77,41 @@ export default function AboutSection() {
         <div className="md:col-span-8 space-y-10 text-[15px] text-neutral-700 dark:text-neutral-300 leading-relaxed font-medium mt-2">
   
           <section className="border-l-[3px] border-red-600 pl-6 space-y-3 transition-colors duration-300">
-            <p>
-              I am a Software Engineer and a Computer Engineering Master's student at <Link href="https://cs.sakarya.edu.tr/" target="_blank" rel="noopener noreferrer" className="font-bold text-black dark:text-white underline decoration-black/20 dark:decoration-white/20 hover:text-red-600 dark:hover:text-red-600 hover:decoration-red-600 underline-offset-4 transition-all duration-300">SAU</Link>, driven to build systems that truly last. My background spans from robust enterprise backend development to integrating modern AI workflows. I prioritize function over hype, leveraging these tools to solve real problems and simplify complex operations.
+            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg text-justify transition-colors duration-300">
+              {a.rich('text1', {
+                sauLink: (chunks) => (
+                  <Link 
+                    href="https://cs.sakarya.edu.tr/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="font-bold text-black dark:text-white underline decoration-black/20 dark:decoration-white/20 hover:text-red-600 dark:hover:text-red-600 hover:decoration-red-600 underline-offset-4 transition-all duration-300"
+                  >
+                    {chunks}
+                  </Link>
+                )
+              })}
             </p>
           </section>
 
           <section className="border-l-[3px] border-red-600 pl-6 space-y-3 transition-colors duration-300">
-            <p>
-              Writing the codebase is only the first step. I take full responsibility for the entire digital lifecycle of my projects — from initial architecture to production. Whether it requires provisioning the host server, calibrating domains, or providing ongoing maintenance and scaling updates, I ensure the systems I deliver remain stable and secure long after the initial launch. You can view my works <Link href="/#portfolio" className="font-bold text-black dark:text-white underline decoration-black/20 dark:decoration-white/20 hover:text-red-600 dark:hover:text-red-600 hover:decoration-red-600 underline-offset-4 transition-all duration-300">here</Link>.
+            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg text-justify transition-colors duration-300">
+              {a.rich('text2', {
+                portfolioLink: (chunks) => (
+                  <Link 
+                    href="/#portfolio" 
+                    className="font-bold text-black dark:text-white underline decoration-black/20 dark:decoration-white/20 hover:text-red-600 dark:hover:text-red-600 hover:decoration-red-600 underline-offset-4 transition-all duration-300"
+                  >
+                    {chunks}
+                  </Link>
+                )
+              })}
             </p>
           </section>
 
+          {/* Applied the matching typography classes to this third paragraph */}
           <section className="border-l-[3px] border-red-600 pl-6 space-y-3 transition-colors duration-300">
-            <p>
-              Away from the keyboard, I stay grounded through physical handcrafts and analyzing complex designs. I am also a linguist, comfortably navigating Turkic, Slavic, and Germanic languages. These pursuits remind me that the best systems — whether in spoken language, carpentry, or software — are built on patience, structural integrity, and continuous learning.
+            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg text-justify transition-colors duration-300">
+              {a('text3')} 
             </p>
           </section>
         

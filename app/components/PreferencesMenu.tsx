@@ -2,11 +2,21 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import { usePathname, useRouter } from "next/navigation";
+
+import { useTranslations } from 'next-intl';
 
 export default function PreferencesMenu() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [activeLang, setActiveLang] = useState("EN");
+  const n = useTranslations('Navbar'); // Connects to the "Navbar" object in your JSON
+  
+  const pathname = usePathname();
+  const router = useRouter();
+  
+  // Dynamically grab the current locale from the URL (e.g., /tr/about -> TR)
+  const currentUrlLocale = (pathname.split('/')[1] || 'en').toUpperCase();
+  const [activeLang, setActiveLang] = useState(currentUrlLocale);
   
   // States for Click Interaction
   const [isOpen, setIsOpen] = useState(false);
@@ -42,12 +52,12 @@ export default function PreferencesMenu() {
     { code: "DE", label: "Deutsch", flag: "🇩🇪" },
   ];
 
-  const currentLang = languages.find(l => l.code === activeLang);
+  const currentLang = languages.find(l => l.code === activeLang) || languages[0];
 
   return (
     <div className="relative py-2 flex items-center" ref={menuRef}>
       
-      {/* Gear Icon Trigger (Now uses Click instead of Hover) */}
+      {/* Gear Icon Trigger */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className={`p-1 text-black dark:text-white transition-all duration-300 focus:outline-none ${
@@ -66,14 +76,13 @@ export default function PreferencesMenu() {
           
           {/* Theme Toggle Section */}
           <div className="p-2 border-b border-black/5 dark:border-white/5">
-            <div className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest px-3 py-2">Appearance</div>
+            <div className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest px-3 py-2">{n('appearance')}</div>
             <button
               onClick={() => setTheme(isDark ? 'light' : 'dark')}
               className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-600 text-black dark:text-white transition-colors"
             >
-              <span className="text-sm font-medium">{isDark ? 'Dark Mode' : 'Light Mode'}</span>
+              <span className="text-sm font-medium">{isDark ? n('dark_theme') : n('light_theme')}</span>
               
-              {/* SVG Icons instead of Emojis */}
               {isDark ? (
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-400"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
               ) : (
@@ -84,24 +93,21 @@ export default function PreferencesMenu() {
 
           {/* Language Selection Section */}
           <div className="p-2">
-            <div className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest px-3 py-2">Language</div>
+            <div className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest px-3 py-2">{n('language')}</div>
             
-            {/* Clickable Language Header */}
             <button
               onClick={() => setIsLangOpen(!isLangOpen)}
               className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 text-black dark:text-white transition-colors"
             >
               <div className="flex items-center gap-3 text-sm font-medium">
-                <span className="text-base leading-none">{currentLang?.flag}</span>
-                <span>{currentLang?.label}</span>
+                <span className="text-base leading-none">{currentLang.flag}</span>
+                <span>{currentLang.label}</span>
               </div>
-              {/* Rotating Chevron */}
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 ${isLangOpen ? "rotate-180 text-red-600" : "text-neutral-400"}`}>
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
 
-            {/* Collapsible Language List */}
             {isLangOpen && (
               <div className="mt-1 flex flex-col gap-0.5 bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-1 animate-in fade-in slide-in-from-top-1 duration-200">
                 {languages.map((lang) => (
@@ -109,8 +115,13 @@ export default function PreferencesMenu() {
                     key={lang.code}
                     onClick={() => {
                       setActiveLang(lang.code);
-                      setIsLangOpen(false); // Close list
-                      setIsOpen(false); // Close entire menu
+                      setIsLangOpen(false);
+                      setIsOpen(false);
+                      
+                      // Push to new localized URL
+                      const newLocale = lang.code.toLowerCase();
+                      const newPath = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`);
+                      router.push(newPath || `/${newLocale}`);
                     }}
                     className={`flex items-center justify-between px-3 py-2 rounded-md transition-colors ${
                       activeLang === lang.code
@@ -129,7 +140,6 @@ export default function PreferencesMenu() {
                 ))}
               </div>
             )}
-
           </div>
         </div>
       )}

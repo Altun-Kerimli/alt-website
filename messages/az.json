@@ -1,0 +1,120 @@
+{
+  "Basic": {
+    "name": "Altun Kərimli"
+  },
+  "Hero": {
+    "greeting": "Salam.",
+    "welcome": "Xoş gəlmisiniz:",
+    "description": "Mən veb tətbiqlər, Telegram botları və avtomatlaşdırılmış rəqəmsal alətlər yaradıram. Təmiz kod, etibarlı infrastruktur və dəqiq icra."
+  },
+  "Navbar": {
+    "portfolio": "Portfolio",
+    "about": "Haqqımda",
+    "contact": "Əlaqə",
+    "tools": "Alətlər",
+    "decoder": "Dekoder",
+    "media": "Media",
+    "offline": "Oflayn",
+    "online": "Onlayn",
+    "websites": "Veb Saytlar",
+    "tg_bots": "Telegram Botlar",
+    "mobile": "Mobil Tətbiqlər",
+    "automation": "Avtomatlaşdırma",
+    "others": "Digər",
+    "appearance": "Görünüş",
+    "dark_theme": "Tünd Tema",
+    "light_theme": "Açıq Tema",
+    "language": "Dil"
+  },
+  "Portfolio": {
+    "title": "Portfolio",
+    "title_description": "Frilans layihələr və sistem tətbiqləri.",
+    "meta_website": "VEB SAYT",
+    "meta_description": "Bu platformanın özü mənim bacarıq və təcrübəmin canlı, müstəqil nümayişidir. O, responsiv frilans portfolio indeksini, uzaq PostgreSQL serverlərinə bağlı təcrid olunmuş təhlükəsiz inzibati CMS panelini və tamamilə modulyar server infrastrukturu üzərində qurulmuş <toolLink>alətlər dəstini</toolLink> özündə birləşdirir.",
+    "loading_catalog": "Kataloq yüklənir...",
+    "no_project_records": "Bu kateqoriyada heç bir layihə qeydi tapılmadı.",
+    "launch": "Keçid et",
+    "websites": "Veb Saytlar",
+    "tg_bots": "Telegram Botlar",
+    "mobile": "Mobil Tətbiqlər",
+    "automation": "Avtomatlaşdırma",
+    "others": "Digər"
+  },
+  "About": {
+    "title": "Haqqımda",
+    "description": "Proqram mühəndisliyi, infrastruktur və əsas prinsiplər.",
+    "bsc": "Bakalavr Məzunu",
+    "msc": "Magistratura Tələbəsi",
+    "present": "Hazırda",
+    "text1": "Mən Proqram Mühəndisi və <sauLink>SAU</sauLink>-da Kompüter Mühəndisliyi üzrə Magistratura tələbəsiyəm, həqiqətən uzunömürlü sistemlər qurmağa diqqət yetirirəm. Təcrübəm etibarlı korporativ backend inkişafından tutmuş müasir süni intellekt iş axınlarının inteqrasiyasına qədər uzanır. Mən nümayişkaranəlikdən çox funksionallığa üstünlük verir, real problemləri həll etmək və mürəkkəb əməliyyatları sadələşdirmək üçün bu alətlərdən istifadə edirəm.",
+    "text2": "Kod bazasının yazılması yalnız ilk addımdır. İlkin memarlıqdan tutmuş istehsala qədər layihələrimin bütün rəqəmsal həyat dövrünə tam məsuliyyət daşıyıram. İstər ana serverin təmin edilməsi, domenlərin kalibrlənməsi, istərsə də davamlı texniki dəstək və miqyaslandırma yeniləmələri olsun, təhvil verdiyim sistemlərin ilkin buraxılışdan çox sonra da sabit və təhlükəsiz qalmasını təmin edirəm. İşlərimə <portfolioLink>buradan</portfolioLink> baxa bilərsiniz.",
+    "text3": "Klaviatura arxasında olmadığım zaman, fiziki əl işləri ilə məşğul olaraq və mürəkkəb dizaynları təhlil edərək özümü balanslaşdırıram. Eyni zamanda Türk, Slavyan və German dillərində rahat ünsiyyət qura bilən linqvistəm. Bu məşğuliyyətlər mənə xatırladır ki, ən yaxşı sistemlər - istər danışıq dilində, istər dülgərlikdə, istərsə də proqram təminatında - səbr, struktur bütövlüyü və davamlı öyrənmə üzərində qurulur.",
+    "here": "buradan."
+  },
+  "Contact": {
+    "title": "Əlaqə",
+    "description": "Sistem quraşdırmaları, layihə əməkdaşlıqları və ya ümumi suallarınız üçün mənimlə əlaqə saxlamaqdan çəkinməyin. Mesaj göndərin, sizə ən qısa zamanda geri dönüş edəcəyəm.",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "E-poçt"
+  },
+  "Tools": {
+    "title": "Alətlər",
+    "description": "Köməkçi skriptlər və praktik alətlər.",
+    "media_engine": "Media və Audio Yükləyici",
+    "media_engine_description": "yt-dlp çıxarılması və audio ayrılması.",
+    "decoder": "Dekoder",
+    "decoder_description": "Ondalıq (Decimal) və Morze Əlifbası çevirmə alətləri.",
+    "awaiting_deployment": "İstifadəyə verilməsi gözlənilir...",
+    "slot_available": "Boş yer mövcuddur."
+  },
+  "MediaEngine": {
+    "title": "Media və Audio Yükləyici",
+    "description": "Bu modul müvəqqəti olaraq dayandırılmışdır."
+  },
+  "Decoder": {
+    "title": "Dekoder",
+    "description": "Ondalıq (Decimal) və Morze Əlifbası çevirmə alətləri.",
+    "tools": "Alətlər",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "tabs_base": "Say Sistemi Çeviricisi",
+    "tabs_morse": "Morze Şifrələyicisi",
+    "info_btn": "məlumat",
+    "info_base_title": "Rəqəmsal Say Sistemi Çevrilmələri",
+    "info_base_desc": "Bu alət struktur rəqəmsal bazalar (say sistemləri) arasında məlumatları anında çevirir.",
+    "info_base_dec_label": "Ondalıq - Decimal (Baza 10):",
+    "info_base_dec_desc": "Standart insan sayma sistemi (0-9).",
+    "info_base_bin_label": "İkili - Binary (Baza 2):",
+    "info_base_bin_desc": "Kompüterin əsas vəziyyət məntiqi (0, 1).",
+    "info_base_oct_label": "Səkkizli - Octal (Baza 8):",
+    "info_base_oct_desc": "Köhnə hesablama fayl icazələri (0-7).",
+    "info_base_hex_label": "Onaltılıq - Hexadecimal (Baza 16):",
+    "info_base_hex_desc": "Müasir yaddaş ünvanları və rəng kodları (0-9, A-F).",
+    "info_morse_alphabet": "{language} Əlifbası",
+    "info_morse_numbers": "Rəqəmlər",
+    "base_matrix": "Baza Məlumat Matrisi",
+    "base_dec": "Ondalıq (10)",
+    "base_bin": "İkili (2)",
+    "base_oct": "Səkkizli (8)",
+    "base_hex": "Onaltılıq (16)",
+    "cipher_engine": "Şifrələmə Mühərriki",
+    "lang_eng": "İNG",
+    "lang_rus": "RUS",
+    "lang_tur": "TÜR",
+    "mode_to_morse": "Mətn → Morze",
+    "mode_to_text": "Morze → Mətn",
+    "input_text": "Giriş Mətni ({language})",
+    "input_morse": "Giriş Morze Kodu",
+    "placeholder_text": "Mətni bura yazın...",
+    "output_morse": "Çıxış Morze Kodu",
+    "output_text": "Çıxış Mətni ({language})"
+  },
+  "Maintenance": {
+    "title": "Texniki Baxış",
+    "description": "Hazırda texniki baxış həyata keçirilir. Zəhmət olmasa, daha sonra yenidən yoxlayın.",
+    "status": "Bu modul müvəqqəti olaraq dayandırılmışdır.",
+    "status_offline": "Oflayn",
+    "status_online": "Onlayn"
+  }
+}

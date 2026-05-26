@@ -1,0 +1,120 @@
+{
+  "Basic": {
+    "name": "Altun Karimli"
+  },
+  "Hero": {
+    "greeting": "Hallo.",
+    "welcome": "Willkommen bei",
+    "description": "Ich entwickle Webanwendungen, Telegram-Bots und automatisierte digitale Tools. Sauberer Code, zuverlässige Infrastruktur und geradlinige Ausführung."
+  },
+  "Navbar": {
+    "portfolio": "Portfolio",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "tools": "Tools",
+    "decoder": "Decoder",
+    "media": "Medien",
+    "offline": "Offline",
+    "online": "Online",
+    "websites": "Websites",
+    "tg_bots": "Telegram Bots",
+    "mobile": "Mobile Apps",
+    "automation": "Automatisierung",
+    "others": "Sonstige",
+    "appearance": "Erscheinungsbild",
+    "dark_theme": "Dunkles Design",
+    "light_theme": "Helles Design",
+    "language": "Sprache"
+  },
+  "Portfolio": {
+    "title": "Portfolio",
+    "title_description": "Freelance-Projekte und System-Deployments.",
+    "meta_website": "WEBSITE",
+    "meta_description": "Diese Plattform selbst dient als lebendige, in sich geschlossene Demonstration meiner Fähigkeiten und Erfahrungen. Sie vereint ein responsives Freelance-Portfolio-Verzeichnis, ein isoliertes, sicheres administratives CMS-Dashboard, das an entfernte PostgreSQL-Instanzen angebunden ist, und <toolLink>Toolsets</toolLink>, die vollständig auf einer modularen Serverinfrastruktur aufgebaut sind.",
+    "loading_catalog": "Katalog wird geladen...",
+    "no_project_records": "Unter dieser Kategorie wurden keine Projekt-Datensätze gefunden.",
+    "launch": "Öffnen",
+    "websites": "Websites",
+    "tg_bots": "Telegram Bots",
+    "mobile": "Mobile Apps",
+    "automation": "Automatisierung",
+    "others": "Sonstige"
+  },
+  "About": {
+    "title": "Über mich",
+    "description": "Software-Engineering, Infrastruktur und Kernprinzipien.",
+    "bsc": "B.Sc. Absolvent",
+    "msc": "M.Sc. Student",
+    "present": "Heute",
+    "text1": "Ich bin Software Engineer und Masterstudent im Bereich Computer Engineering an der <sauLink>SAU</sauLink>, angetrieben davon, Systeme zu entwickeln, die wirklich Bestand haben. Mein Hintergrund reicht von robuster Enterprise-Backend-Entwicklung bis hin zur Integration moderner KI-Workflows. Ich priorisiere Funktion vor Hype und nutze diese Werkzeuge, um reale Probleme zu lösen und komplexe Abläufe zu vereinfachen.",
+    "text2": "Das Schreiben der Codebasis ist nur der erste Schritt. Ich übernehme die volle Verantwortung für den gesamten digitalen Lebenszyklus meiner Projekte – von der initialen Architektur bis zur Produktion. Ob es die Bereitstellung des Host-Servers, die Kalibrierung von Domains oder die Durchführung kontinuierlicher Wartungs- und Skalierungsupdates erfordert: Ich stelle sicher, dass die von mir gelieferten Systeme noch lange nach dem ersten Launch stabil und sicher bleiben. Meine Arbeiten können Sie <portfolioLink>hier</portfolioLink> einsehen.",
+    "text3": "Abseits der Tastatur finde ich meinen Ausgleich durch physische Handwerksarbeiten und die Analyse komplexer Designs. Ich bin auch ein Linguist und bewege mich sicher in türkischen, slawischen und germanischen Sprachen. Diese Leidenschaften erinnern mich daran, dass die besten Systeme – ob in der gesprochenen Sprache, der Schreinerei oder der Software – auf Geduld, struktureller Integrität und kontinuierlichem Lernen aufbauen.",
+    "here": "hier."
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "description": "Kontaktieren Sie mich gerne für System-Deployments, Projektkooperationen oder allgemeine Anfragen. Hinterlassen Sie eine Nachricht, und ich werde mich zeitnah bei Ihnen melden.",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "E-Mail"
+  },
+  "Tools": {
+    "title": "Tools",
+    "description": "Dienstprogramm-Skripte und praktische Tools.",
+    "media_engine": "Medien- & Audio-Downloader",
+    "media_engine_description": "yt-dlp-Extraktion und Audiotrennung.",
+    "decoder": "Decoder",
+    "decoder_description": "Dezimal- und Morsecode-Konvertierungswerkzeuge.",
+    "awaiting_deployment": "Wartet auf Deployment...",
+    "slot_available": "Platz verfügbar."
+  },
+  "MediaEngine": {
+    "title": "Medien- & Audio-Downloader",
+    "description": "Dieses Modul wurde vorübergehend ausgesetzt."
+  },
+  "Decoder": {
+    "title": "Decoder",
+    "description": "Dezimal- und Morsecode-Konvertierungswerkzeuge.",
+    "tools": "Tools",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "tabs_base": "Basis-Konverter",
+    "tabs_morse": "Morse-Chiffre",
+    "info_btn": "Info",
+    "info_base_title": "Numerische Basis-Konvertierungen",
+    "info_base_desc": "Dieses Tool übersetzt Daten verzögerungsfrei zwischen strukturellen numerischen Basen.",
+    "info_base_dec_label": "Dezimal (Basis 10):",
+    "info_base_dec_desc": "Standard-Zählsystem für Menschen (0-9).",
+    "info_base_bin_label": "Binär (Basis 2):",
+    "info_base_bin_desc": "Kernlogik der Maschinenzustände (0, 1).",
+    "info_base_oct_label": "Oktal (Basis 8):",
+    "info_base_oct_desc": "Veraltete Dateiberechtigungen (0-7).",
+    "info_base_hex_label": "Hexadezimal (Basis 16):",
+    "info_base_hex_desc": "Moderne Speicheradressen und Farbcodes (0-9, A-F).",
+    "info_morse_alphabet": "{language} Alphabet",
+    "info_morse_numbers": "Zahlen",
+    "base_matrix": "Basis-Datenmatrix",
+    "base_dec": "Dezimal (10)",
+    "base_bin": "Binär (2)",
+    "base_oct": "Oktal (8)",
+    "base_hex": "Hexadezimal (16)",
+    "cipher_engine": "Cipher-Engine",
+    "lang_eng": "ENG",
+    "lang_rus": "RUS",
+    "lang_tur": "TUR",
+    "mode_to_morse": "Text → Morse",
+    "mode_to_text": "Morse → Text",
+    "input_text": "Eingabetext ({language})",
+    "input_morse": "Eingabe Morsecode",
+    "placeholder_text": "Payload hier eingeben...",
+    "output_morse": "Ausgabe Morsecode",
+    "output_text": "Ausgabetext ({language})"
+  },
+  "Maintenance": {
+    "title": "Wartungsarbeiten",
+    "description": "Derzeit finden Wartungsarbeiten statt. Bitte schauen Sie später wieder vorbei.",
+    "status": "Dieses Modul wurde vorübergehend ausgesetzt.",
+    "status_offline": "Offline",
+    "status_online": "Online"
+  }
+}

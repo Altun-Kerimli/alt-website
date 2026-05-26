@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from "react";
 
+import { useTranslations } from 'next-intl';
+
 export default function ContactSection() {
   const [mounted, setMounted] = useState(false);
+  const c = useTranslations('Contact'); // Connects to the "Contact" object in your JSON
 
   useEffect(() => {
     setMounted(true);
@@ -12,7 +15,7 @@ export default function ContactSection() {
   const contacts = [
     {
       id: "telegram",
-      platform: "Telegram Matrix",
+      platform: c('telegram'),
       address: "@Alt_K_141",
       href: "https://t.me/Alt_K_141",
       icon: (
@@ -24,7 +27,7 @@ export default function ContactSection() {
     },
     {
       id: "instagram",
-      platform: "Instagram Grid",
+      platform: c('instagram'),
       address: "@alt_karim_li_business",
       href: "https://instagram.com/alt_karim_li_business/",
       icon: (
@@ -37,7 +40,7 @@ export default function ContactSection() {
     },
     {
       id: "email",
-      platform: "Secure Email",
+      platform: c('email'),
       address: "karimli.altun@gmail.com",
       href: "mailto:karimli.altun@gmail.com",
       icon: (
@@ -58,9 +61,9 @@ export default function ContactSection() {
       <header className="border-b border-black/10 dark:border-white/10 pb-5 flex flex-col gap-2 transition-colors duration-300">
         <div className="flex items-center gap-3">
           <div className="w-1 h-7 bg-red-600 rounded-sm"></div> 
-          <h2 className="text-3xl font-extrabold tracking-tight text-black dark:text-white transition-colors duration-300">Contact Me</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight text-black dark:text-white transition-colors duration-300">{c('title')}</h2>
         </div>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium ml-6 transition-colors duration-300">Don't hesitate to reach out for inquiries or system deployments.</p>
+        <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium ml-6 transition-colors duration-300">{c('description')}</p>
       </header>
 
       {/* 3-Column Grid */}

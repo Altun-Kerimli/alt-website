@@ -1,0 +1,122 @@
+{
+  "Basic": {
+    "name": "Altun Karimli"
+  },
+  "Hero": {
+    "greeting": "Merhaba.",
+    "welcome": "Hoş geldiniz - ",
+    "description": "Web uygulamaları, Telegram botları ve otomatik dijital araçlar geliştiriyorum. Temiz kod, güvenilir altyapı ve net uygulama."
+  },
+  "Navbar": {
+    "portfolio": "Portfolyo",
+    "about": "Hakkımda",
+    "contact": "İletişim",
+    "tools": "Araçlar",
+    "decoder": "Dekoder",
+    "media": "Medya",
+    "offline": "Çevrimdışı",
+    "online": "Çevrimiçi",
+
+    "websites": "Web Siteleri",
+    "tg_bots": "Telegram Botları",
+    "mobile": "Mobil Uygulamalar",
+    "automation": "Otomasyon",
+    "others": "Diğer",
+
+    "appearance": "Görünüm",
+    "dark_theme": "Karanlık Tema",
+    "light_theme": "Aydınlık Tema",
+    "language": "Dil"
+  },
+  "Portfolio": {
+    "title": "Portfolyo",
+    "title_description": "Serbest projeler ve sistem dağıtımları.",
+    "meta_website": "WEB SİTESİ",
+    "meta_description": "Bu platformun kendisi, yeteneklerimin ve deneyimlerimin canlı, kendi kendine yeten bir gösterimi olarak hizmet vermektedir. Duyarlı bir serbest portfolyo dizinini, uzak PostgreSQL sunucularına bağlı izole edilmiş güvenli bir yönetim CMS panelini ve tamamen modüler bir sunucu altyapısı üzerine inşa edilmiş <toolLink>araç setlerini</toolLink> bir araya getirir.",
+    "loading_catalog": "Katalog yükleniyor...",
+    "no_project_records": "Bu kategoride hiçbir proje kaydı bulunamadı.",
+    "launch": "Başlat",
+
+    "websites": "Web Siteleri",
+    "tg_bots": "Telegram Botları",
+    "mobile": "Mobil Uygulamalar",
+    "automation": "Otomasyon",
+    "others": "Diğer"
+  },
+  "About": {
+    "title": "Hakkımda",
+    "description": "Yazılım mühendisliği, altyapı ve temel prensipler.",
+    "bsc": "Lisans Mezunu",
+    "msc": "Y. Lisans Öğrencisi",
+    "present": "Günümüz",
+    "text1": "Ben bir Yazılım Mühendisi ve <sauLink>SAU</sauLink>'de Bilgisayar Mühendisliği Yüksek Lisans öğrencisiyim, gerçekten kalıcı sistemler inşa etmeye odaklanmış durumdayım. Geçmişim, sağlam kurumsal backend geliştirmeden modern yapay zeka iş akışlarının entegrasyonuna kadar uzanıyor. Karmaşık operasyonları basitleştirmek ve gerçek sorunları çözmek için bu araçlardan yararlanarak gösterişten ziyade işleve öncelik veriyorum.",
+    "text2": "Kod tabanını yazmak sadece ilk adımdır. İlk mimariden üretime kadar projelerimin tüm dijital yaşam döngüsünün sorumluluğunu üstleniyorum. İster ana sunucunun hazırlanması, ister alan adlarının kalibre edilmesi veya sürekli bakım ve ölçeklendirme güncellemelerinin sağlanması gereksin, teslim ettiğim sistemlerin ilk lansmandan çok sonra bile istikrarlı ve güvenli kalmasını sağlıyorum. Çalışmalarımı <portfolioLink>buradan inceleyebilirsiniz</portfolioLink>.",
+    "text3": "Klavye başından kalktığımda, fiziksel el sanatları ile uğraşarak ve karmaşık tasarımları analiz ederek kendimi dengeliyorum. Aynı zamanda Türk, Slav ve Cermen dillerinde rahatça gezinebilen bir dilbilimciyim. Bu uğraşlar bana en iyi sistemlerin - ister konuşma dilinde, ister marangozlukta, ister yazılımda olsun - sabır, yapısal bütünlük ve sürekli öğrenme üzerine inşa edildiğini hatırlatıyor."
+  },
+  "Contact": {
+    "title": "İletişim",
+    "description": "Sistem kurulumları, proje işbirlikleri veya genel sorularınız için bana ulaşmaktan çekinmeyin. Bir mesaj bırakın, size en kısa sürede dönüş yapacağım.",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "email": "E-posta"
+  },
+  "Tools": {
+    "title": "Araçlar",
+    "description": "Yardımcı betikler ve pratik araçlar.",
+    "media_engine": "Medya ve Ses İndirici",
+    "media_engine_description": "yt-dlp çıkarma ve ses ayrıştırma.",
+    "decoder": "Dekoder",
+    "decoder_description": "Ondalık (Decimal) ve Mors Alfabesi dönüştürme araçları.",
+    "awaiting_deployment": "Dağıtım bekleniyor...",
+    "slot_available": "Boş yuva mevcut."
+  },
+  "MediaEngine": {
+    "title": "Medya ve Ses İndirici",
+    "description": "Bu modül geçici olarak askıya alınmıştır."
+  },
+  "Decoder": {
+    "title": "Dekoder",
+    "description": "Ondalık (Decimal) ve Mors Alfabesi dönüştürme araçları.",
+    "tools": "Araçlar",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "tabs_base": "Taban Dönüştürücü",
+    "tabs_morse": "Mors Şifreleyici",
+    "info_btn": "bilgi",
+    "info_base_title": "Sayısal Taban Dönüşümleri",
+    "info_base_desc": "Bu araç, yapısal sayısal tabanlar arasındaki verileri anında dönüştürür.",
+    "info_base_dec_label": "Ondalık - Decimal (Taban 10):",
+    "info_base_dec_desc": "Standart insan sayma sistemi (0-9).",
+    "info_base_bin_label": "İkili - Binary (Taban 2):",
+    "info_base_bin_desc": "Temel makine durum mantığı (0, 1).",
+    "info_base_oct_label": "Sekizli - Octal (Taban 8):",
+    "info_base_oct_desc": "Eski bilgi işlem dosya izinleri (0-7).",
+    "info_base_hex_label": "Onaltılı - Hexadecimal (Taban 16):",
+    "info_base_hex_desc": "Modern bellek adresleri ve renk kodları (0-9, A-F).",
+    "info_morse_alphabet": "{language} Alfabesi",
+    "info_morse_numbers": "Sayılar",
+    "base_matrix": "Taban Veri Matrisi",
+    "base_dec": "Ondalık (10)",
+    "base_bin": "İkili (2)",
+    "base_oct": "Sekizli (8)",
+    "base_hex": "Onaltılı (16)",
+    "cipher_engine": "Şifreleme Motoru",
+    "lang_eng": "İNG",
+    "lang_rus": "RUS",
+    "lang_tur": "TÜR",
+    "mode_to_morse": "Metin → Mors",
+    "mode_to_text": "Mors → Metin",
+    "input_text": "Giriş Metni ({language})",
+    "input_morse": "Giriş Mors Kodu",
+    "placeholder_text": "İçeriği buraya yazın...",
+    "output_morse": "Çıkış Mors Kodu",
+    "output_text": "Çıkış Metni ({language})"
+  },
+  "Maintenance": {
+    "title": "Bakım Aşamasında",
+    "description": "Şu anda bakım yapılıyor. Lütfen daha sonra tekrar kontrol edin.",
+    "status": "Bu modül geçici olarak askıya alınmıştır.",
+    "status_offline": "Çevrimdışı",
+    "status_online": "Çevrimiçi"
+  }
+}

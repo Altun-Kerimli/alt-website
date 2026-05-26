@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from 'next-intl';
 
 // --- MORSE DICTIONARIES ---
 const MORSE_ENGLISH: Record<string, string> = {
@@ -32,8 +33,8 @@ const DICTIONARIES = {
 type LanguageMode = "English" | "Russian" | "Turkish";
 type ToolTab = "base" | "morse";
 
-// Clipboard Utility Component
-const CopyButton = ({ text }: { text: string }) => {
+// Clipboard Utility Component (Updated to accept translated labels)
+const CopyButton = ({ text, labelCopy, labelCopied }: { text: string, labelCopy: string, labelCopied: string }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -53,7 +54,7 @@ const CopyButton = ({ text }: { text: string }) => {
           : "bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-neutral-500 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30"
       } disabled:opacity-30 disabled:cursor-not-allowed`}
     >
-      {copied ? "Copied" : "Copy"}
+      {copied ? labelCopied : labelCopy}
     </button>
   );
 };
@@ -70,6 +71,7 @@ export default function DecoderPage() {
   const [morseOutput, setMorseOutput] = useState("");
 
   useEffect(() => setMounted(true), []);
+  const t = useTranslations('Decoder');
 
   const handleBaseChange = (base: keyof typeof bases, value: string) => {
     if (!value.trim()) {
@@ -142,7 +144,7 @@ export default function DecoderPage() {
       <header className="border-b border-black/10 dark:border-white/10 pb-5 flex flex-col gap-2 transition-colors">
         <div className="flex items-center gap-3">
           <div className="w-1 h-7 bg-red-600 rounded-sm"></div> 
-          <h1 className="text-3xl font-extrabold tracking-tight text-black dark:text-white transition-colors">Tools <span className="text-neutral-300 dark:text-neutral-700">/</span> Decoder</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight text-black dark:text-white transition-colors">{t('tools')} <span className="text-neutral-300 dark:text-neutral-700"></span> {t('title')}</h1>
         </div>
       </header>
 
@@ -152,21 +154,21 @@ export default function DecoderPage() {
           onClick={() => setActiveTab("base")}
           className={`text-center py-4 border-b-[3px] transition-all uppercase tracking-widest ${
             activeTab === "base"
-              ? "border-red-600 text-red-600"
+              ? "border-red-600 text-neutral-900 dark:text-neutral-100 hover:text-red-600 dark:hover:text-red-600"
               : "border-transparent text-neutral-400 hover:text-black dark:hover:text-white hover:border-black/20 dark:hover:border-white/20"
           }`}
         >
-          Base Converter
+          {t('tabs_base')}
         </button>
         <button
           onClick={() => setActiveTab("morse")}
           className={`text-center py-4 border-b-[3px] transition-all uppercase tracking-widest ${
             activeTab === "morse"
-              ? "border-red-600 text-red-600"
+              ? "border-red-600 text-neutral-900 dark:text-neutral-100 hover:text-red-600 dark:hover:text-red-600`"
               : "border-transparent text-neutral-400 hover:text-black dark:hover:text-white hover:border-black/20 dark:hover:border-white/20"
           }`}
         >
-          Morse Cipher
+          {t('tabs_morse')}
         </button>
       </div>
 
@@ -180,7 +182,7 @@ export default function DecoderPage() {
               : "bg-white dark:bg-black text-neutral-500 dark:text-neutral-400 border border-black/10 dark:border-white/10 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30"
           }`}
         >
-          info
+          {t('info_btn')}
         </button>
       </div>
 
@@ -189,19 +191,19 @@ export default function DecoderPage() {
         <div className="p-6 border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50 rounded-2xl animate-in fade-in slide-in-from-top-2 duration-200 shadow-sm transition-colors">
           {activeTab === "base" ? (
             <div className="space-y-3 font-medium text-sm text-neutral-600 dark:text-neutral-400">
-              <h3 className="text-black dark:text-white font-extrabold mb-3 border-b border-black/5 dark:border-white/10 pb-2 uppercase tracking-wider transition-colors">Numerical Radix Conversions</h3>
-              <p>This tool translates data between structural numerical bases instantaneously.</p>
+              <h3 className="text-black dark:text-white font-extrabold mb-3 border-b border-black/5 dark:border-white/10 pb-2 uppercase tracking-wider transition-colors">{t('info_base_title')}</h3>
+              <p>{t('info_base_desc')}</p>
               <ul className="list-disc pl-5 space-y-2 mt-4">
-                <li><strong className="text-black dark:text-white">Decimal (Base 10):</strong> Standard human counting system (0-9).</li>
-                <li><strong className="text-black dark:text-white">Binary (Base 2):</strong> Core machine state logic (0, 1).</li>
-                <li><strong className="text-black dark:text-white">Octal (Base 8):</strong> Legacy computing file permissions (0-7).</li>
-                <li><strong className="text-black dark:text-white">Hexadecimal (Base 16):</strong> Modern memory addresses and color codes (0-9, A-F).</li>
+                <li><strong className="text-black dark:text-white">{t('info_base_dec_label')}</strong> {t('info_base_dec_desc')}</li>
+                <li><strong className="text-black dark:text-white">{t('info_base_bin_label')}</strong> {t('info_base_bin_desc')}</li>
+                <li><strong className="text-black dark:text-white">{t('info_base_oct_label')}</strong> {t('info_base_oct_desc')}</li>
+                <li><strong className="text-black dark:text-white">{t('info_base_hex_label')}</strong> {t('info_base_hex_desc')}</li>
               </ul>
             </div>
           ) : (
             <div className="font-medium text-sm text-neutral-600 dark:text-neutral-400 space-y-8">
               <div>
-                <h3 className="text-black dark:text-white font-extrabold mb-4 border-b border-black/5 dark:border-white/10 pb-2 uppercase tracking-wider transition-colors">{language} Alphabet</h3>
+                <h3 className="text-black dark:text-white font-extrabold mb-4 border-b border-black/5 dark:border-white/10 pb-2 uppercase tracking-wider transition-colors">{t('info_morse_alphabet', { language })}</h3>
                 <div className="columns-2 sm:columns-3 md:columns-4 gap-x-12 space-y-2">
                   {dictLetters.map(([char, code]) => (
                   <div key={char} className="flex items-center justify-between gap-x-6 border-b border-black/5 dark:border-white/5 pb-1 break-inside-avoid">
@@ -213,7 +215,7 @@ export default function DecoderPage() {
               </div>
               
               <div>
-                <h3 className="text-black dark:text-white font-extrabold mb-4 border-b border-black/5 dark:border-white/10 pb-2 uppercase tracking-wider transition-colors">Numbers</h3>
+                <h3 className="text-black dark:text-white font-extrabold mb-4 border-b border-black/5 dark:border-white/10 pb-2 uppercase tracking-wider transition-colors">{t('info_morse_numbers')}</h3>
                 <div className="columns-2 sm:columns-3 md:columns-4 gap-x-12 space-y-2">
                   {dictNumbers.map(([char, code]) => (
                   <div key={char} className="flex items-center justify-between gap-x-6 border-b border-black/5 dark:border-white/5 pb-1 break-inside-avoid">
@@ -233,14 +235,14 @@ export default function DecoderPage() {
         {/* --- TAB 1: BASE CONVERTER --- */}
         {activeTab === "base" && (
           <section className="space-y-6 animate-in fade-in duration-300">
-            <h2 className="text-sm font-bold text-black dark:text-white uppercase tracking-wider border-l-4 border-red-600 pl-3 transition-colors">Base Data Matrix</h2>
+            <h2 className="text-sm font-bold text-black dark:text-white uppercase tracking-wider border-l-4 border-red-600 pl-3 transition-colors">{t('base_matrix')}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
               <div className="space-y-3 p-6 border border-black/5 dark:border-white/10 rounded-2xl bg-white dark:bg-black shadow-sm transition-colors">
                 <div className="flex justify-between items-center">
-                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Decimal (10)</label>
-                  <CopyButton text={bases.dec} />
+                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{t('base_dec')}</label>
+                  <CopyButton text={bases.dec} labelCopy={t('copy')} labelCopied={t('copied')} />
                 </div>
                 <input
                   type="text"
@@ -253,8 +255,8 @@ export default function DecoderPage() {
               
               <div className="space-y-3 p-6 border border-black/5 dark:border-white/10 rounded-2xl bg-white dark:bg-black shadow-sm transition-colors">
                 <div className="flex justify-between items-center">
-                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Binary (2)</label>
-                  <CopyButton text={bases.bin} />
+                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{t('base_bin')}</label>
+                  <CopyButton text={bases.bin} labelCopy={t('copy')} labelCopied={t('copied')} />
                 </div>
                 <input
                   type="text"
@@ -267,8 +269,8 @@ export default function DecoderPage() {
               
               <div className="space-y-3 p-6 border border-black/5 dark:border-white/10 rounded-2xl bg-white dark:bg-black shadow-sm transition-colors">
                 <div className="flex justify-between items-center">
-                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Octal (8)</label>
-                  <CopyButton text={bases.oct} />
+                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{t('base_oct')}</label>
+                  <CopyButton text={bases.oct} labelCopy={t('copy')} labelCopied={t('copied')} />
                 </div>
                 <input
                   type="text"
@@ -281,8 +283,8 @@ export default function DecoderPage() {
               
               <div className="space-y-3 p-6 border border-black/5 dark:border-white/10 rounded-2xl bg-white dark:bg-black shadow-sm transition-colors">
                 <div className="flex justify-between items-center">
-                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Hexadecimal (16)</label>
-                  <CopyButton text={bases.hex} />
+                  <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{t('base_hex')}</label>
+                  <CopyButton text={bases.hex} labelCopy={t('copy')} labelCopied={t('copied')} />
                 </div>
                 <input
                   type="text"
@@ -301,7 +303,7 @@ export default function DecoderPage() {
           <section className="space-y-6 animate-in fade-in duration-300">
             
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-black/10 dark:border-white/10 pb-4 transition-colors">
-              <h2 className="text-sm font-bold text-black dark:text-white uppercase tracking-wider border-l-4 border-red-600 pl-3">Cipher Engine</h2>
+              <h2 className="text-sm font-bold text-black dark:text-white uppercase tracking-wider border-l-4 border-red-600 pl-3">{t('cipher_engine')}</h2>
               
               <div className="flex gap-3">
                 <select
@@ -309,16 +311,16 @@ export default function DecoderPage() {
                   onChange={(e) => { setLanguage(e.target.value as LanguageMode); setMorseInput(""); }}
                   className="bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-black dark:text-white text-xs font-bold px-3 py-2 outline-none rounded-lg focus:border-red-600 transition-colors uppercase tracking-wider shadow-sm cursor-pointer"
                 >
-                  <option value="English">ENG</option>
-                  <option value="Russian">RUS</option>
-                  <option value="Turkish">TUR</option>
+                  <option value="English">{t('lang_eng')}</option>
+                  <option value="Russian">{t('lang_rus')}</option>
+                  <option value="Turkish">{t('lang_tur')}</option>
                 </select>
 
                 <button 
                   onClick={() => { setMorseMode(morseMode === "toMorse" ? "toText" : "toMorse"); setMorseInput(""); }}
                   className="text-xs font-bold uppercase tracking-wider border border-black/10 dark:border-transparent bg-neutral-100 dark:bg-neutral-800 px-4 py-2 rounded-lg text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors shadow-sm"
                 >
-                  {morseMode === "toMorse" ? "Text → Morse" : "Morse → Text"}
+                  {morseMode === "toMorse" ? t('mode_to_morse') : t('mode_to_text')}
                 </button>
               </div>
             </div>
@@ -328,14 +330,14 @@ export default function DecoderPage() {
               <div className="space-y-3 p-6 border border-black/5 dark:border-white/10 rounded-2xl bg-white dark:bg-black shadow-sm flex flex-col h-full transition-colors">
                 <div className="flex justify-between items-center">
                   <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-                    {morseMode === "toMorse" ? `Input Text (${language})` : "Input Morse Code"}
+                    {morseMode === "toMorse" ? t('input_text', { language }) : t('input_morse')}
                   </label>
-                  <CopyButton text={morseInput} />
+                  <CopyButton text={morseInput} labelCopy={t('copy')} labelCopied={t('copied')} />
                 </div>
                 <textarea
                   value={morseInput}
                   onChange={(e) => setMorseInput(e.target.value)}
-                  placeholder={morseMode === "toMorse" ? "Type payload here..." : ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."}
+                  placeholder={morseMode === "toMorse" ? t('placeholder_text') : ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."}
                   className="w-full bg-neutral-50 dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl px-4 py-4 text-base font-mono font-bold text-black dark:text-white outline-none focus:border-red-600 dark:focus:border-red-600 focus:bg-white dark:focus:bg-black focus:ring-2 focus:ring-red-600/20 transition-all flex-1 min-h-[200px] resize-none placeholder:text-neutral-300 dark:placeholder:text-neutral-600"
                 />
               </div>
@@ -343,9 +345,9 @@ export default function DecoderPage() {
               <div className="space-y-3 p-6 border border-black/5 dark:border-white/10 rounded-2xl bg-white dark:bg-black shadow-sm flex flex-col h-full transition-colors">
                 <div className="flex justify-between items-center">
                   <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-                    {morseMode === "toMorse" ? "Output Morse Code" : `Output Text (${language})`}
+                    {morseMode === "toMorse" ? t('output_morse') : t('output_text', { language })}
                   </label>
-                  <CopyButton text={morseOutput} />
+                  <CopyButton text={morseOutput} labelCopy={t('copy')} labelCopied={t('copied')} />
                 </div>
                 <textarea
                   readOnly

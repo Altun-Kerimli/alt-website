@@ -1,14 +1,21 @@
 "use client";
 
+import { useTranslations } from 'next-intl';
+
 export default function MediaEngineDisabledPage() {
+
+  // const [mounted, setMounted] = useState(false);
+  const t = useTranslations('Maintenance'); // Connects to the "Maintenance" object in your JSON
+  // const t = useTranslations('MediaEngine'); // Connects to the "MediaEngine" object in your JSON
+
   return (
     <div className="w-full max-w-2xl bg-white dark:bg-black mx-auto px-4 mt-12 space-y-4">
       <header className="border-b border-black/10 dark:border-white/10 pb-4 transition-colors">
-        <h1 className="text-xl font-mono font-bold tracking-tight text-neutral-600 dark:text-neutral-300">/tools/media <span className="text-red-600">[OFFLINE]</span></h1>
-        <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">This module has been temporarily suspended.</p>
+        <h1 className="text-xl font-mono font-bold tracking-tight text-neutral-600 dark:text-neutral-300">/tools/media {t('title')} <span className="text-red-600">[{t('status_offline')}]</span></h1>
+        <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">{t('status')}</p>
       </header>
       <div className="p-6 border border-black/10 dark:border-white/10 border-dashed rounded-xl bg-neutral-50 dark:bg-neutral-900/50 text-center transition-colors">
-        <span className="text-xs font-mono font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">Awaiting infrastructure upgrades. Check back later.</span>
+        <span className="text-xs font-mono font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">{t('description')}</span>
       </div>
     </div>
   );
