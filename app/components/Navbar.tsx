@@ -18,7 +18,7 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
   
   const n = useTranslations('Navbar');
-  const currentLocale = useLocale(); // Properly fetches the active language
+  const currentLocale = useLocale();
 
   // Smart Navbar Scroll Logic
   useEffect(() => {
@@ -51,7 +51,8 @@ export default function Navbar() {
     <>
       <nav className={`fixed w-full top-0 z-50 border-b border-black/5 dark:border-white/10 bg-white/80 dark:bg-black/80 backdrop-blur-xl px-6 py-4 md:px-12 transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"}`}>
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <Link href="/" className="font-bold tracking-tight text-lg text-black dark:text-white hover:text-amber-500 transition-colors">
+          {/* Logo updated to include locale */}
+          <Link href={`/${currentLocale}`} className="font-bold tracking-tight text-lg text-black dark:text-white hover:text-amber-500 transition-colors">
             <span className="text-amber-500 mr-1">/</span>ALT
           </Link>
           
@@ -60,34 +61,37 @@ export default function Navbar() {
             
             {/* Portfolio Dropdown */}
             <div className="group relative py-2">
-              <Link href="/#portfolio" className="hover:text-red-600 transition flex items-center gap-1.5">
+              <Link href={`/${currentLocale}#portfolio`} className="hover:text-red-600 transition flex items-center gap-1.5">
                 {n('portfolio')}
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50 transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
               </Link>
               <div className="absolute top-[100%] left-0 w-full h-2"></div>
-              <div className="absolute top-[calc(100%+0.5rem)] left-0 w-48 hidden group-hover:flex flex-col bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden py-1.5">
-                <Link href="/#websites" className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('websites')}</Link>
-                <Link href="/#tg-bots" className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('tg_bots')}</Link>
-                <Link href="/#mobile" className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('mobile')}</Link>
-                <Link href="/#ai-automation" className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('automation')}</Link>
-                <Link href="/#others" className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('others')}</Link>
+              <div className="absolute top-[calc(100%+0.5rem)] left-0 w-48 hidden group-hover:flex flex-col bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden py-1.5 dropdown-reveal">
+                <Link href={`/${currentLocale}#websites`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('websites')}</Link>
+                <Link href={`/${currentLocale}#tg-bots`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('tg_bots')}</Link>
+                <Link href={`/${currentLocale}#mobile`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('mobile')}</Link>
+                <Link href={`/${currentLocale}#ai-automation`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('automation')}</Link>
+                <Link href={`/${currentLocale}#others`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('others')}</Link>
               </div>
             </div>
 
-            <Link href="/#about" className="py-2 hover:text-red-600 transition-colors">{n('about')}</Link>
-            <Link href="/#contact" className="py-2 hover:text-red-600 transition-colors">{n('contact')}</Link>
+            {/* Main Links */}
+            <Link href={`/${currentLocale}#about`} className="py-2 hover:text-red-600 transition-colors">{n('about')}</Link>
+            <Link href={`/${currentLocale}#contact`} className="py-2 hover:text-red-600 transition-colors">{n('contact')}</Link>
             <div className="group relative py-2"> | </div>
 
             {/* Tools Dropdown */}
             <div className="group relative py-2">
-              <Link href="/tools" className="hover:text-red-600 transition flex items-center gap-1.5">
+              <Link href={`/${currentLocale}/tools`} className="hover:text-red-600 transition flex items-center gap-1.5">
                 {n('tools')}
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50 transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
               </Link>
+              
               <div className="absolute top-[100%] left-0 w-full h-2"></div>
-              <div className="absolute top-[calc(100%+0.5rem)] left-0 w-44 hidden group-hover:flex flex-col bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden py-1.5">
-                <Link href="/tools/decoder" className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('decoder')}</Link>
-                <Link href="/tools/media" className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-400 transition-colors opacity-70 flex justify-between items-center">
+
+              <div className="absolute top-[calc(100%+0.5rem)] right-[-60px] w-44 hidden group-hover:flex flex-col bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden py-1.5 origin-top-right dropdown-reveal">
+                <Link href={`/${currentLocale}/tools/decoder`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('decoder')}</Link>
+                <Link href={`/${currentLocale}/tools/media`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-400 transition-colors opacity-70 flex justify-between items-center">
                   <span className="line-through">{n('media')}</span>
                   <span className="text-[10px] font-mono border border-black/10 dark:border-white/10 px-1.5 py-0.5 rounded">{n('offline')}</span>
                 </Link>
@@ -110,10 +114,11 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-[60px] left-0 w-full bg-white dark:bg-black border-b border-black/5 dark:border-white/10 shadow-xl z-40 p-6 flex flex-col gap-5 text-base font-bold text-black dark:text-white h-[calc(100vh-60px)] overflow-y-auto">
           
-          <Link href="/#portfolio" onClick={() => setMobileMenuOpen(false)}>{n('portfolio')}</Link>
-          <Link href="/#about" onClick={() => setMobileMenuOpen(false)}>{n('about')}</Link>
-          <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>{n('contact')}</Link>
-          <Link href="/tools" onClick={() => setMobileMenuOpen(false)}>{n('tools')}</Link>
+          {/* Mobile Links */}
+          <Link href={`/${currentLocale}#portfolio`} onClick={() => setMobileMenuOpen(false)}>{n('portfolio')}</Link>
+          <Link href={`/${currentLocale}#about`} onClick={() => setMobileMenuOpen(false)}>{n('about')}</Link>
+          <Link href={`/${currentLocale}#contact`} onClick={() => setMobileMenuOpen(false)}>{n('contact')}</Link>
+          <Link href={`/${currentLocale}/tools`} onClick={() => setMobileMenuOpen(false)}>{n('tools')}</Link>
           
           {/* Mobile Preferences Section */}
           <div className="pt-6 mt-2 border-t border-black/10 dark:border-white/10 flex flex-col gap-8 pb-10">

@@ -72,7 +72,7 @@ export default function PreferencesMenu() {
 
       {/* Main Dropdown Panel */}
       {isOpen && (
-        <div className="absolute top-[calc(100%+0.5rem)] right-0 w-56 flex flex-col bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute top-[calc(100%+0.5rem)] right-0 w-56 flex flex-col bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 dropdown-reveal">
           
           {/* Theme Toggle Section */}
           <div className="p-2 border-b border-black/5 dark:border-white/5">
@@ -109,7 +109,7 @@ export default function PreferencesMenu() {
             </button>
 
             {isLangOpen && (
-              <div className="mt-1 flex flex-col gap-0.5 bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-1 animate-in fade-in slide-in-from-top-1 duration-200">
+              <div className="mt-1 flex flex-col gap-0.5 bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-1 dropdown-reveal">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}

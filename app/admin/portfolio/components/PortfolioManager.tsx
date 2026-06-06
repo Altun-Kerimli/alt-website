@@ -130,26 +130,26 @@ export function PortfolioManager() {
 
   return (
     <div className="space-y-6">
-      <header className="border-b border-neutral-800 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <header className="border-b border-neutral-200 dark:border-neutral-800 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-xl font-mono font-bold">/admin/portfolio</h1>
+          <h1 className="text-xl font-mono font-bold text-black dark:text-white">/admin/portfolio</h1>
           <p className="text-xs text-neutral-500 mt-1">Direct Mutation Control Interface</p>
         </div>
         <div className="flex gap-2 w-full sm:w-auto">
-          <button onClick={openInsertModal} className="flex-1 sm:flex-none bg-neutral-100 text-neutral-950 font-mono text-xs font-bold px-3 py-1.5 rounded hover:bg-neutral-200 transition">
+          <button onClick={openInsertModal} className="flex-1 sm:flex-none bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-950 font-mono text-xs font-bold px-3 py-1.5 rounded hover:bg-black dark:hover:bg-neutral-200 transition">
             New Record
           </button>
           <button 
             onClick={openUpdateModal} 
             disabled={selectedIds.length !== 1}
-            className="flex-1 sm:flex-none border border-neutral-800 font-mono text-xs font-bold px-3 py-1.5 rounded hover:border-neutral-700 disabled:opacity-40 disabled:hover:border-neutral-800 transition text-neutral-300"
+            className="flex-1 sm:flex-none border border-neutral-300 dark:border-neutral-800 font-mono text-xs font-bold px-3 py-1.5 rounded hover:border-neutral-400 dark:hover:border-neutral-700 disabled:opacity-40 disabled:hover:border-neutral-300 dark:disabled:hover:border-neutral-800 transition text-neutral-700 dark:text-neutral-300"
           >
             Edit
           </button>
           <button 
             onClick={handleDeleteSelected}
             disabled={selectedIds.length === 0}
-            className="flex-1 sm:flex-none border border-red-900/50 bg-red-950/20 text-red-400 font-mono text-xs font-bold px-3 py-1.5 rounded hover:bg-red-950/40 disabled:opacity-40 disabled:hover:border-red-950/20 transition"
+            className="flex-1 sm:flex-none border border-red-900/50 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 font-mono text-xs font-bold px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-red-950/40 disabled:opacity-40 transition"
           >
             Delete ({selectedIds.length})
           </button>
@@ -159,16 +159,16 @@ export function PortfolioManager() {
       {loading ? (
         <div className="text-xs font-mono text-neutral-500">Querying live schema matrix...</div>
       ) : (
-        <div className="border border-neutral-800 rounded overflow-x-auto bg-neutral-950">
+        <div className="border border-neutral-200 dark:border-neutral-800 rounded overflow-x-auto bg-white dark:bg-neutral-950 shadow-sm dark:shadow-none">
           <table className="w-full text-left border-collapse min-w-[600px]">
             <thead>
-              <tr className="border-b border-neutral-800 bg-neutral-900/40 text-xs font-mono text-neutral-400">
+              <tr className="border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40 text-xs font-mono text-neutral-600 dark:text-neutral-400">
                 <th className="p-4 w-12 text-center">
                   <input 
                     type="checkbox" 
                     onChange={handleSelectAll} 
                     checked={items.length > 0 && selectedIds.length === items.length}
-                    className="accent-neutral-100"
+                    className="accent-black dark:accent-neutral-100"
                   />
                 </th>
                 <th className="p-4 w-12">Logo</th>
@@ -178,7 +178,7 @@ export function PortfolioManager() {
                 <th className="p-4">Stack Tags</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-neutral-800 text-sm">
+            <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800 text-sm">
               {items.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="p-8 text-center text-xs font-mono text-neutral-500">No database rows returned.</td>
@@ -198,18 +198,18 @@ export function PortfolioManager() {
                   };
 
                   return (
-                    <tr key={item.id} className="hover:bg-neutral-900/20 transition">
+                    <tr key={item.id} className="hover:bg-neutral-50 dark:hover:bg-neutral-900/20 transition">
                       <td className="p-4 text-center">
                         <input 
                           type="checkbox" 
                           checked={selectedIds.includes(item.id)}
                           onChange={() => handleCheckboxChange(item.id)}
-                          className="accent-neutral-100"
+                          className="accent-black dark:accent-neutral-100"
                         />
                       </td>
                       <td className="p-4">
                         {directFavicon ? (
-                          <div className="w-5 h-5 rounded bg-neutral-900 border border-neutral-800 p-0.5 flex items-center justify-center relative">
+                          <div className="w-5 h-5 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-0.5 flex items-center justify-center relative">
                             <Image 
                               src={directFavicon} 
                               alt="" 
@@ -221,26 +221,26 @@ export function PortfolioManager() {
                             />
                           </div>
                         ) : (
-                          <span className="text-neutral-600 font-mono text-xs">-</span>
+                          <span className="text-neutral-400 dark:text-neutral-600 font-mono text-xs">-</span>
                         )}
                       </td>
-                      <td className="p-4 font-bold font-mono text-neutral-200">{item.title}</td>
-                      <td className="p-4 text-xs font-mono text-neutral-400">
+                      <td className="p-4 font-bold font-mono text-black dark:text-neutral-200">{item.title}</td>
+                      <td className="p-4 text-xs font-mono text-neutral-500 dark:text-neutral-400">
                         {CATEGORIES.find(c => c.id === item.category)?.label || item.category}
                       </td>
-                      <td className="p-4 text-neutral-400 font-mono text-xs truncate max-w-xs">
+                      <td className="p-4 text-neutral-500 dark:text-neutral-400 font-mono text-xs truncate max-w-xs">
                         {item.link ? (
-                          <a href={item.link} target="_blank" rel="noreferrer" className="hover:text-neutral-200 underline decoration-neutral-800">
+                          <a href={item.link} target="_blank" rel="noreferrer" className="hover:text-black dark:hover:text-neutral-200 underline decoration-neutral-300 dark:decoration-neutral-800">
                             {item.link}
                           </a>
                         ) : (
-                          <span className="text-neutral-600">none</span>
+                          <span className="text-neutral-400 dark:text-neutral-600">none</span>
                         )}
                       </td>
                       <td className="p-4">
                         <div className="flex flex-wrap gap-1">
                           {item.tags?.map((tag, idx) => (
-                            <span key={idx} className="bg-neutral-900 border border-neutral-800 text-[10px] px-1.5 py-0.5 font-mono text-neutral-400 rounded">
+                            <span key={idx} className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-[10px] px-1.5 py-0.5 font-mono text-neutral-600 dark:text-neutral-400 rounded">
                               {tag}
                             </span>
                           ))}
@@ -255,33 +255,33 @@ export function PortfolioManager() {
         </div>
       )}
 
-      {/* Input Modal View */}
+      {/* Input Modal View with .dropdown-reveal integration */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-neutral-950 border border-neutral-800 rounded p-6 max-w-md w-full space-y-4 shadow-xl">
+          <div className="bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded p-6 max-w-md w-full space-y-4 shadow-xl dropdown-reveal">
             <div>
-              <h3 className="font-mono text-sm font-bold text-neutral-200">
+              <h3 className="font-mono text-sm font-bold text-black dark:text-neutral-200">
                 {currentId ? "Modify Portfolio Entry" : "Append Portfolio Entry"}
               </h3>
             </div>
             
             <form onSubmit={handleSave} className="space-y-4">
               <div className="space-y-1">
-                <label className="text-xs font-mono text-neutral-400">Project Title</label>
+                <label className="text-xs font-mono text-neutral-500 dark:text-neutral-400">Project Title</label>
                 <input 
                   type="text" 
                   required 
                   value={title} 
                   onChange={(e) => setTitle(e.target.value)} 
-                  className="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-neutral-700"
+                  className="w-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-red-600 dark:focus:border-red-600 text-black dark:text-white"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-mono text-neutral-400">Project Category</label>
+                <label className="text-xs font-mono text-neutral-500 dark:text-neutral-400">Project Category</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-neutral-700 font-mono text-neutral-300"
+                  className="w-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-red-600 dark:focus:border-red-600 font-mono text-black dark:text-neutral-300"
                 >
                   {CATEGORIES.map((cat) => (
                     <option key={cat.id} value={cat.id}>{cat.label}</option>
@@ -289,33 +289,33 @@ export function PortfolioManager() {
                 </select>
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-mono text-neutral-400">Launch Link URL</label>
+                <label className="text-xs font-mono text-neutral-500 dark:text-neutral-400">Launch Link URL</label>
                 <input 
                   type="text" 
                   value={link} 
                   onChange={(e) => setLink(e.target.value)} 
-                  className="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-neutral-700"
+                  className="w-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-red-600 dark:focus:border-red-600 text-black dark:text-white"
                   placeholder="c-abyss.vercel.app"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-mono text-neutral-400">Tech Stack Tags <span className="text-neutral-600">(Comma separated)</span></label>
+                <label className="text-xs font-mono text-neutral-500 dark:text-neutral-400">Tech Stack Tags <span className="text-neutral-400 dark:text-neutral-600">(Comma separated)</span></label>
                 <input 
                   type="text" 
                   placeholder="React, Next.js, PHP"
                   value={tagsInput} 
                   onChange={(e) => setTagsInput(e.target.value)} 
-                  className="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-neutral-700"
+                  className="w-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-red-600 dark:focus:border-red-600 text-black dark:text-white"
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-mono text-neutral-400">Image Asset URLs <span className="text-neutral-600">(Comma separated)</span></label>
+                <label className="text-xs font-mono text-neutral-500 dark:text-neutral-400">Image Asset URLs <span className="text-neutral-400 dark:text-neutral-600">(Comma separated)</span></label>
                 <textarea 
                   rows={2}
-                  placeholder="https://site.com/img1.png, https://site.com/img2.png"
+                  placeholder="https://site.com/img1.png"
                   value={imagesInput} 
                   onChange={(e) => setImagesInput(e.target.value)} 
-                  className="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-neutral-700 resize-none"
+                  className="w-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-red-600 dark:focus:border-red-600 resize-none text-black dark:text-white"
                 />
               </div>
 
@@ -323,13 +323,13 @@ export function PortfolioManager() {
                 <button 
                   type="button" 
                   onClick={() => setIsModalOpen(false)}
-                  className="border border-neutral-800 font-mono text-xs px-3 py-2 rounded hover:bg-neutral-900 text-neutral-400"
+                  className="border border-neutral-200 dark:border-neutral-800 font-mono text-xs px-3 py-2 rounded hover:bg-neutral-100 dark:hover:bg-neutral-900 text-neutral-600 dark:text-neutral-400"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="bg-neutral-100 text-neutral-950 font-mono text-xs font-bold px-4 py-2 rounded hover:bg-neutral-200 transition"
+                  className="bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-950 font-mono text-xs font-bold px-4 py-2 rounded hover:bg-black dark:hover:bg-neutral-200 transition"
                 >
                   Commit Data
                 </button>

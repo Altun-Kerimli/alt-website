@@ -66,13 +66,16 @@
   "Tools": {
     "title": "Tools",
     "description": "Utility scripts and convenience tools.",
+    "description2": "Feel free to check out and use the convenience tools.",
     "media_engine": "Media & Audio Downloader",
     "media_engine_description": "yt-dlp extraction and audio separation.",
     "decoder": "Decoder",
     "decoder_description": "Decimal and Morse Code conversion utilities.",
 
     "awaiting_deployment": "Awaiting deployment...",
-    "slot_available": "Slot available."
+    "slot_available": "Slot available.",
+    "visit_tool": "Check",
+    "offline": "Offline"
   },
   "MediaEngine": {
     "title": "Media & Audio Downloader",

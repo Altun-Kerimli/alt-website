@@ -26,6 +26,10 @@ export const authOptions: NextAuthOptions = {
   },
   session: {
     strategy: "jwt",
+    maxAge: 60 * 60, // Enforces exact 1-hour session limit
+  },
+  jwt: {
+    maxAge: 60 * 60, // Matches token lifespan to session lifespan
   },
   secret: process.env.NEXTAUTH_SECRET,
 };

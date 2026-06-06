@@ -7,36 +7,97 @@ html {
 }
 
 body {
-  /* Removed the hardcoded background and color variables from here */
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 /* Sleek Native Application Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f5f5f5;
-}
-/* Dark mode scrollbar track */
-.dark ::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
-  border-radius: 10px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: #262626;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #dc2626; /* 10% Red Action */
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f5f5f5; }
+.dark ::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 10px; }
+.dark ::-webkit-scrollbar-thumb { background: #262626; }
+::-webkit-scrollbar-thumb:hover { background: #dc2626; }
 
 /* Aggressive High-Contrast Selection */
-::selection {
-  background: #dc2626; /* Tailwind red-600 */
-  color: #ffffff;
+::selection { background: #dc2626; color: #ffffff; }
+
+/* =========================================
+   GLOBAL TAILWIND PACKS (UI & ANIMATIONS)
+   ========================================= */
+@layer components {
+  /* --- LAYOUT & HEADERS --- */
+  .section-header {
+    @apply border-b border-black/10 dark:border-white/10 pb-5 flex flex-col gap-2 transition-colors duration-300;
+  }
+  .section-title {
+    @apply text-3xl font-extrabold tracking-tight text-black dark:text-white transition-colors duration-300;
+  }
+  .section-desc {
+    @apply text-sm text-neutral-500 dark:text-neutral-400 font-medium ml-6 transition-colors duration-300;
+  }
+
+  /* --- CARDS & CONTAINERS --- */
+  .card-interactive {
+    @apply block border-2 border-black/5 dark:border-white/5 rounded-2xl bg-white dark:bg-black transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:border-red-600/50 dark:hover:border-red-600/50 hover:shadow-[0_10px_40px_-10px_rgba(220,38,38,0.2)] dark:hover:shadow-[0_10px_40px_-10px_rgba(220,38,38,0.3)] active:scale-[0.98] active:border-red-600/50 active:shadow-md cursor-pointer touch-manipulation;
+  }
+  .meta-banner {
+    @apply border border-black/10 dark:border-white/10 bg-white dark:bg-black rounded-2xl p-7 space-y-5 transition-all duration-500 hover:border-red-600/30 dark:hover:border-red-600/30 hover:shadow-[0_0_30px_-5px_rgba(220,38,38,0.15)];
+  }
+
+  /* --- BADGES --- */
+  .badge-tech {
+    @apply bg-neutral-50 dark:bg-neutral-900 border border-black/5 dark:border-white/10 text-[10px] font-bold px-3 py-1.5 text-neutral-600 dark:text-neutral-400 rounded-md uppercase tracking-wider;
+  }
+  .badge-academic {
+    @apply flex items-center gap-4 border border-black/10 dark:border-white/10 bg-white dark:bg-black shadow-sm p-3 rounded-xl transition-all duration-300 hover:border-red-600/40 dark:hover:border-red-600/40 hover:shadow-md;
+  }
+
+  /* --- TYPOGRAPHY & LINKS --- */
+  .text-accent-link {
+    @apply font-bold text-black dark:text-white underline decoration-black/20 dark:decoration-white/20 hover:text-red-600 dark:hover:text-red-600 hover:decoration-red-600 underline-offset-4 transition-all duration-300;
+  }
+
+  /* --- ANIMATION STATES --- */
+  .reveal-base {
+    @apply opacity-0 translate-y-6 transition-all duration-700 ease-out;
+  }
+  .reveal-visible {
+    @apply opacity-100 translate-y-0;
+  }
+  .reveal-hidden-scale {
+    @apply opacity-0 scale-95 transition-all duration-700 ease-out;
+  }
+  .reveal-visible-scale {
+    @apply opacity-100 scale-100;
+  }
+  .reveal-hidden-right {
+    @apply opacity-0 translate-x-12 transition-all duration-700 ease-out;
+  }
+  .reveal-visible-right {
+    @apply opacity-100 translate-x-0;
+  }
+
+  /* --- UI MICRO-INTERACTIONS --- */
+  .dropdown-reveal {
+    animation: dropdown-slide-down 0.2s ease-out forwards;
+  }
+
+  @keyframes dropdown-slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .pulse-indicator-base {
+    @apply relative inline-flex rounded-full h-2 w-2 bg-red-500;
+  }
+  .pulse-indicator-ping {
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75;
+  }
 }

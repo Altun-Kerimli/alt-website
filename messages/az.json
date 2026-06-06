@@ -60,13 +60,17 @@
   },
   "Tools": {
     "title": "Alətlər",
-    "description": "Köməkçi skriptlər və praktik alətlər.",
+    "description": "Köməkçi skriptlər və faydalı alətlər.",
+    "description2": "Faydalı alətlərimizə nəzər yetirməkdən və istifadə etməkdən çəkinməyin.",
     "media_engine": "Media və Audio Yükləyici",
-    "media_engine_description": "yt-dlp çıxarılması və audio ayrılması.",
-    "decoder": "Dekoder",
-    "decoder_description": "Ondalıq (Decimal) və Morze Əlifbası çevirmə alətləri.",
-    "awaiting_deployment": "İstifadəyə verilməsi gözlənilir...",
-    "slot_available": "Boş yer mövcuddur."
+    "media_engine_description": "yt-dlp məlumat çıxarışı və səs ayırma.",
+    "decoder": "Şifrə Açan",
+    "decoder_description": "Onluq və Morz Əlifbası çevirmə alətləri.",
+    
+    "awaiting_deployment": "Yerləşdirilmə gözlənilir...",
+    "slot_available": "Boş yer.",
+    "visit_tool": "Yoxla",
+    "offline": "Oflayn"
   },
   "MediaEngine": {
     "title": "Media və Audio Yükləyici",

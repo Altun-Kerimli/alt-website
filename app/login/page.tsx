@@ -1,14 +1,15 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,53 +18,69 @@ export default function LoginPage() {
     const result = await signIn("credentials", {
       email,
       password,
-      redirect: false, // Prevents full-page hard reloads
+      redirect: false,
     });
 
     if (result?.error) {
       setError("Invalid credential matrix keys.");
     } else {
-      router.push("/admin");
-      router.refresh();
+      // Force a hard redirect to clear the DOM. 
+      // This prevents the nested <html> layout hydration crash.
+      window.location.href = "/admin"; 
     }
   };
 
+  if (!mounted) return null;
+
   return (
-    <div className="min-h-[50vh] flex items-center justify-center">
-      <div className="border border-neutral-800 rounded p-6 bg-neutral-900/10 max-w-sm w-full space-y-4">
-        <div>
-          <h1 className="text-lg font-mono font-bold">system_auth</h1>
-          <p className="text-xs text-neutral-500 mt-1">Provide credential matrix keys</p>
-        </div>
+    <div className="min-h-screen flex items-center justify-center p-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 ease-out">
+      <div className="w-full max-w-md border border-white/10 bg-black rounded-2xl p-8 space-y-8 shadow-[0_0_40px_-10px_rgba(220,38,38,0.15)] relative overflow-hidden group">
+        
+        {/* Hover accent border */}
+        <div className="absolute inset-0 border-2 border-transparent group-hover:border-red-600/30 rounded-2xl transition-colors duration-700 pointer-events-none"></div>
+
+        <header className="border-b border-white/10 pb-5">
+          <div className="flex items-center gap-3">
+            {/* Wrapped the pulse indicators in a fixed-size container to prevent expansion */}
+            <span className="flex h-2 w-2 justify-center items-center relative ml-1">
+              <span className="pulse-indicator-ping opacity-70"></span>
+              <span className="pulse-indicator-base"></span>
+            </span>
+            <h1 className="text-xl font-mono font-bold text-white tracking-widest ml-1">system_auth</h1>
+          </div>
+          <p className="text-xs text-neutral-500 font-mono mt-2 ml-7">Provide credential matrix keys</p>
+        </header>
 
         {error && (
-          <div className="text-xs font-mono text-red-500 border border-red-900/50 bg-red-950/20 px-3 py-2 rounded">
-            {error}
+          <div className="text-xs font-mono text-red-400 border border-red-900/50 bg-red-950/20 px-4 py-3 rounded-xl animate-in fade-in slide-in-from-top-2">
+            [!] {error}
           </div>
         )}
 
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div className="space-y-1">
-            <label className="text-xs font-mono text-neutral-400">Email</label>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="space-y-2">
+            <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500">Email Vector</label>
             <input 
               type="email" 
               required 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-neutral-700" 
+              className="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all text-white font-mono placeholder:text-neutral-700" 
+              placeholder="admin@alt.sys"
             />
           </div>
-          <div className="space-y-1">
-            <label className="text-xs font-mono text-neutral-400">Password</label>
+          <div className="space-y-2">
+            <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500">Passkey</label>
             <input 
               type="password" 
               required 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-neutral-900 border border-neutral-800 rounded px-3 py-1.5 text-sm outline-none focus:border-neutral-700" 
+              className="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-600/20 transition-all text-white font-mono tracking-widest" 
+              placeholder="••••••••"
             />
           </div>
-          <button type="submit" className="w-full bg-neutral-100 text-neutral-950 font-mono text-xs font-bold py-2 rounded hover:bg-neutral-200 transition">
+          <button type="submit" className="w-full bg-white text-black font-mono text-xs font-bold py-3.5 rounded-xl hover:bg-red-600 hover:text-white hover:shadow-[0_0_20px_rgba(220,38,38,0.4)] transition-all duration-300 uppercase tracking-widest mt-4">
             Initialize Access
           </button>
         </form>

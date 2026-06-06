@@ -59,14 +59,18 @@
     "email": "E-Mail"
   },
   "Tools": {
-    "title": "Tools",
-    "description": "Dienstprogramm-Skripte und praktische Tools.",
+    "title": "Werkzeuge",
+    "description": "Hilfsskripte und praktische Werkzeuge.",
+    "description2": "Schauen Sie sich unsere praktischen Werkzeuge an und nutzen Sie sie.",
     "media_engine": "Medien- & Audio-Downloader",
-    "media_engine_description": "yt-dlp-Extraktion und Audiotrennung.",
-    "decoder": "Decoder",
-    "decoder_description": "Dezimal- und Morsecode-Konvertierungswerkzeuge.",
-    "awaiting_deployment": "Wartet auf Deployment...",
-    "slot_available": "Platz verfügbar."
+    "media_engine_description": "yt-dlp Extraktion und Audiotrennung.",
+    "decoder": "Dekodierer",
+    "decoder_description": "Konvertierungsprogramme für Dezimalzahlen und Morsecode.",
+    
+    "awaiting_deployment": "Warten auf Bereitstellung...",
+    "slot_available": "Platz verfügbar.",
+    "visit_tool": "Prüfen",
+    "offline": "Offline"
   },
   "MediaEngine": {
     "title": "Medien- & Audio-Downloader",

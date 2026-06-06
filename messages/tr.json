@@ -62,13 +62,17 @@
   },
   "Tools": {
     "title": "Araçlar",
-    "description": "Yardımcı betikler ve pratik araçlar.",
+    "description": "Yardımcı komut dosyaları ve pratik araçlar.",
+    "description2": "Kullanışlı araçlarımıza göz atmaktan ve kullanmaktan çekinmeyin.",
     "media_engine": "Medya ve Ses İndirici",
-    "media_engine_description": "yt-dlp çıkarma ve ses ayrıştırma.",
-    "decoder": "Dekoder",
-    "decoder_description": "Ondalık (Decimal) ve Mors Alfabesi dönüştürme araçları.",
+    "media_engine_description": "yt-dlp veri çıkarma ve səs ayrıştırma.",
+    "decoder": "Şifre Çözücü",
+    "decoder_description": "Ondalık ve Mors Alfabesi dönüştürme araçları.",
+    
     "awaiting_deployment": "Dağıtım bekleniyor...",
-    "slot_available": "Boş yuva mevcut."
+    "slot_available": "Boş alan.",
+    "visit_tool": "İncele",
+    "offline": "Çevrimdışı"
   },
   "MediaEngine": {
     "title": "Medya ve Ses İndirici",

@@ -33,7 +33,7 @@ const DICTIONARIES = {
 type LanguageMode = "English" | "Russian" | "Turkish";
 type ToolTab = "base" | "morse";
 
-// Clipboard Utility Component (Updated to accept translated labels)
+// Clipboard Utility Component
 const CopyButton = ({ text, labelCopy, labelCopied }: { text: string, labelCopy: string, labelCopied: string }) => {
   const [copied, setCopied] = useState(false);
 
@@ -139,12 +139,12 @@ export default function DecoderPage() {
   if (!mounted) return null;
 
   return (
-    <div className="w-full max-w-4xl bg-white dark:bg-black mx-auto px-6 md:px-12 py-16 space-y-8">
+    <div className="w-full max-w-4xl bg-white dark:bg-black mx-auto px-6 md:px-12 py-16 space-y-8 reveal-base">
       
-      <header className="border-b border-black/10 dark:border-white/10 pb-5 flex flex-col gap-2 transition-colors">
+      <header className="section-header">
         <div className="flex items-center gap-3">
           <div className="w-1 h-7 bg-red-600 rounded-sm"></div> 
-          <h1 className="text-3xl font-extrabold tracking-tight text-black dark:text-white transition-colors">{t('tools')} <span className="text-neutral-300 dark:text-neutral-700"></span> {t('title')}</h1>
+          <h1 className="section-title">{t('tools')} <span className="text-neutral-300 dark:text-neutral-700">/</span> {t('title')}</h1>
         </div>
       </header>
 
@@ -164,7 +164,7 @@ export default function DecoderPage() {
           onClick={() => setActiveTab("morse")}
           className={`text-center py-4 border-b-[3px] transition-all uppercase tracking-widest ${
             activeTab === "morse"
-              ? "border-red-600 text-neutral-900 dark:text-neutral-100 hover:text-red-600 dark:hover:text-red-600`"
+              ? "border-red-600 text-neutral-900 dark:text-neutral-100 hover:text-red-600 dark:hover:text-red-600"
               : "border-transparent text-neutral-400 hover:text-black dark:hover:text-white hover:border-black/20 dark:hover:border-white/20"
           }`}
         >
@@ -186,9 +186,9 @@ export default function DecoderPage() {
         </button>
       </div>
 
-      {/* --- INFO MATRIX --- */}
+      {/* --- INFO MATRIX (Restored animate-in) --- */}
       {showInfo && (
-        <div className="p-6 border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50 rounded-2xl animate-in fade-in slide-in-from-top-2 duration-200 shadow-sm transition-colors">
+        <div className="p-6 border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900/50 rounded-2xl shadow-sm transition-colors animate-in fade-in slide-in-from-top-4 duration-500">
           {activeTab === "base" ? (
             <div className="space-y-3 font-medium text-sm text-neutral-600 dark:text-neutral-400">
               <h3 className="text-black dark:text-white font-extrabold mb-3 border-b border-black/5 dark:border-white/10 pb-2 uppercase tracking-wider transition-colors">{t('info_base_title')}</h3>
@@ -232,13 +232,12 @@ export default function DecoderPage() {
 
       <div className="min-h-[400px]">
         
-        {/* --- TAB 1: BASE CONVERTER --- */}
+        {/* --- TAB 1: BASE CONVERTER (Restored animate-in) --- */}
         {activeTab === "base" && (
-          <section className="space-y-6 animate-in fade-in duration-300">
+          <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-sm font-bold text-black dark:text-white uppercase tracking-wider border-l-4 border-red-600 pl-3 transition-colors">{t('base_matrix')}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
               <div className="space-y-3 p-6 border border-black/5 dark:border-white/10 rounded-2xl bg-white dark:bg-black shadow-sm transition-colors">
                 <div className="flex justify-between items-center">
                   <label className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">{t('base_dec')}</label>
@@ -298,9 +297,9 @@ export default function DecoderPage() {
           </section>
         )}
 
-        {/* --- TAB 2: MORSE CIPHER --- */}
+        {/* --- TAB 2: MORSE CIPHER (Restored animate-in) --- */}
         {activeTab === "morse" && (
-          <section className="space-y-6 animate-in fade-in duration-300">
+          <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-black/10 dark:border-white/10 pb-4 transition-colors">
               <h2 className="text-sm font-bold text-black dark:text-white uppercase tracking-wider border-l-4 border-red-600 pl-3">{t('cipher_engine')}</h2>
