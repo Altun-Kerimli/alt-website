@@ -14,6 +14,8 @@
     "tools": "Tools",
     "decoder": "Decoder",
     "media": "Medien",
+    "qr_code": "QR-Code",
+
     "offline": "Offline",
     "online": "Online",
     "websites": "Websites",
@@ -66,7 +68,9 @@
     "media_engine_description": "yt-dlp Extraktion und Audiotrennung.",
     "decoder": "Dekodierer",
     "decoder_description": "Konvertierungsprogramme für Dezimalzahlen und Morsecode.",
-    
+    "qr": "QR-Code",
+    "qr_description": "QR-Code Generator und Leser",
+
     "awaiting_deployment": "Warten auf Bereitstellung...",
     "slot_available": "Platz verfügbar.",
     "visit_tool": "Prüfen",
@@ -113,6 +117,26 @@
     "placeholder_text": "Payload hier eingeben...",
     "output_morse": "Ausgabe Morsecode",
     "output_text": "Ausgabetext ({language})"
+  },
+  "Qr": {
+    "title": "QR-Code",
+    "description": "QR-Code Generator und Leser",
+    "tools": "Tools",
+    "generate_url": "URL generieren",
+    "qr_reader": "QR-Leser",
+    "placeholder": "URL eingeben",
+    "input": "Eingabe",
+    "output": "Ausgabe",
+    "generating": "Generiert...",
+    "generate": "QR generieren",
+    "copy": "QR kopieren",
+    "copied": "Kopiert",
+    "download_qr": "QR herunterladen",
+    "awaiting_payload": "Wartet auf Nutzdaten",
+    "upload_text": "Bild hochladen oder einfügen",
+    "upload_description": "Klicken zum Durchsuchen oder CTRL+V zum Einfügen",
+    "processing": "Wird verarbeitet...",
+    "process_complete": "Verarbeitung abgeschlossen"
   },
   "Maintenance": {
     "title": "Wartungsarbeiten",

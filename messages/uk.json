@@ -14,6 +14,8 @@
     "tools": "Інструменти",
     "decoder": "Декодер",
     "media": "Медіа",
+    "qr_code": "QR-код",
+
     "offline": "Офлайн",
     "online": "Онлайн",
     "websites": "Вебсайти",
@@ -66,7 +68,9 @@
     "media_engine_description": "Витягнення yt-dlp та розділення аудіо.",
     "decoder": "Декодер",
     "decoder_description": "Утиліти перетворення десяткових чисел та азбуки Морзе.",
-    
+    "qr": "QR-код",
+    "qr_description": "Генератор та сканер QR-кодів",
+
     "awaiting_deployment": "Очікування розгортання...",
     "slot_available": "Слот вільний.",
     "visit_tool": "Переглянути",
@@ -113,6 +117,26 @@
     "placeholder_text": "Введіть payload тут...",
     "output_morse": "Вихідний код Морзе",
     "output_text": "Вихідний текст ({language})"
+  },
+  "Qr": {
+    "title": "QR-код",
+    "description": "Генератор та сканер QR-кодів",
+    "tools": "Інструменти",
+    "generate_url": "Згенерувати URL",
+    "qr_reader": "QR-сканер",
+    "placeholder": "Введіть URL",
+    "input": "Введення",
+    "output": "Виведення",
+    "generating": "Генерування...",
+    "generate": "Згенерувати QR",
+    "copy": "Копіювати QR",
+    "copied": "Скопійовано",
+    "download_qr": "Завантажити QR",
+    "awaiting_payload": "Очікування даних",
+    "upload_text": "Завантажте або вставте зображення",
+    "upload_description": "Натисніть, щоб вибрати, або CTRL+V, щоб вставити",
+    "processing": "Обробка...",
+    "process_complete": "Обробку завершено"
   },
   "Maintenance": {
     "title": "На технічному обслуговуванні",

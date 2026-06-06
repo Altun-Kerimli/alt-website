@@ -91,6 +91,7 @@ export default function Navbar() {
 
               <div className="absolute top-[calc(100%+0.5rem)] right-[-60px] w-44 hidden group-hover:flex flex-col bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden py-1.5 origin-top-right dropdown-reveal">
                 <Link href={`/${currentLocale}/tools/decoder`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('decoder')}</Link>
+                <Link href={`/${currentLocale}/tools/qr`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-red-600 transition-colors">{n('qr_code')}</Link>
                 <Link href={`/${currentLocale}/tools/media`} className="px-5 py-2.5 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-400 transition-colors opacity-70 flex justify-between items-center">
                   <span className="line-through">{n('media')}</span>
                   <span className="text-[10px] font-mono border border-black/10 dark:border-white/10 px-1.5 py-0.5 rounded">{n('offline')}</span>

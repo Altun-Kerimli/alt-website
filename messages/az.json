@@ -14,6 +14,8 @@
     "tools": "Alətlər",
     "decoder": "Dekoder",
     "media": "Media",
+    "qr_code": "QR Kod",
+
     "offline": "Oflayn",
     "online": "Onlayn",
     "websites": "Veb Saytlar",
@@ -64,9 +66,11 @@
     "description2": "Faydalı alətlərimizə nəzər yetirməkdən və istifadə etməkdən çəkinməyin.",
     "media_engine": "Media və Audio Yükləyici",
     "media_engine_description": "yt-dlp məlumat çıxarışı və səs ayırma.",
-    "decoder": "Şifrə Açan",
-    "decoder_description": "Onluq və Morz Əlifbası çevirmə alətləri.",
-    
+    "decoder": "Dekoder",
+    "decoder_description": "Onluq və Morz Əlifbası çevirmə aləti.",
+    "qr": "QR Kod",
+    "qr_description": "QR Kod Yaradıcı və Oxuyucu",
+
     "awaiting_deployment": "Yerləşdirilmə gözlənilir...",
     "slot_available": "Boş yer.",
     "visit_tool": "Yoxla",
@@ -113,6 +117,26 @@
     "placeholder_text": "Mətni bura yazın...",
     "output_morse": "Çıxış Morze Kodu",
     "output_text": "Çıxış Mətni ({language})"
+  },
+  "Qr": {
+    "title": "QR Kod",
+    "description": "QR Kod Yaradıcı və Oxuyucu",
+    "tools": "Alətlər",
+    "generate_url": "URL Yarat",
+    "qr_reader": "QR Oxuyucu",
+    "placeholder": "URL daxil edin",
+    "input": "Giriş",
+    "output": "Çıxış",
+    "generating": "Yaradılır...",
+    "generate": "QR Yarat",
+    "copy": "QR Köçür",
+    "copied": "Köçürüldü",
+    "download_qr": "QR Yüklə",
+    "awaiting_payload": "Məlumat gözlənilir",
+    "upload_text": "Şəkil yüklə və ya yapışdır",
+    "upload_description": "Seçmək üçün kliklə və ya CTRL+V ilə yapışdır",
+    "processing": "Emal edilir...",
+    "process_complete": "Emal tamamlandı"
   },
   "Maintenance": {
     "title": "Texniki Baxış",

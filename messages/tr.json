@@ -14,6 +14,8 @@
     "tools": "Araçlar",
     "decoder": "Dekoder",
     "media": "Medya",
+    "qr_code": "QR Kod",
+
     "offline": "Çevrimdışı",
     "online": "Çevrimiçi",
 
@@ -66,8 +68,10 @@
     "description2": "Kullanışlı araçlarımıza göz atmaktan ve kullanmaktan çekinmeyin.",
     "media_engine": "Medya ve Ses İndirici",
     "media_engine_description": "yt-dlp veri çıkarma ve səs ayrıştırma.",
-    "decoder": "Şifre Çözücü",
-    "decoder_description": "Ondalık ve Mors Alfabesi dönüştürme araçları.",
+    "decoder": "Dekoder",
+    "decoder_description": "Ondalık ve Mors Alfabesi dönüştürme aracı.",
+    "qr": "QR Kod",
+    "qr_description": "QR Kod Oluşturucu ve Okuyucu",
     
     "awaiting_deployment": "Dağıtım bekleniyor...",
     "slot_available": "Boş alan.",
@@ -115,6 +119,26 @@
     "placeholder_text": "İçeriği buraya yazın...",
     "output_morse": "Çıkış Mors Kodu",
     "output_text": "Çıkış Metni ({language})"
+  },
+  "Qr": {
+    "title": "QR Kod",
+    "description": "QR Kod Oluşturucu ve Okuyucu",
+    "tools": "Araçlar",
+    "generate_url": "URL Oluştur",
+    "qr_reader": "QR Okuyucu",
+    "placeholder": "URL Girin",
+    "input": "Giriş",
+    "output": "Çıktı",
+    "generating": "Oluşturuluyor...",
+    "generate": "QR Oluştur",
+    "copy": "QR Kopyala",
+    "copied": "Kopyalandı",
+    "download_qr": "QR İndir",
+    "awaiting_payload": "Veri Bekleniyor",
+    "upload_text": "Resim Yükle veya Yapıştır",
+    "upload_description": "Gözatmak için tıklayın veya CTRL+V ile yapıştırın",
+    "processing": "İşleniyor...",
+    "process_complete": "İşlem Tamamlandı"
   },
   "Maintenance": {
     "title": "Bakım Aşamasında",

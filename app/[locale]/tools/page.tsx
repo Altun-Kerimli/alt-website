@@ -30,21 +30,21 @@ export default function ToolsPage() {
 
       {/* Grid with staggered delay reveal */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-base" style={{ transitionDelay: "200ms" }}>
-        
-        <Link href="/tools/media" className="group card-interactive p-8 block">
-          <div className="font-bold text-lg text-black dark:text-white transition-colors">{t('media_engine')}</div>
-          <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2 font-medium transition-colors group-hover:text-black dark:group-hover:text-white">{t('media_engine_description')}</div>
-        </Link>
 
         <Link href="/tools/decoder" className="group card-interactive p-8 block">
           <div className="font-bold text-lg text-black dark:text-white transition-colors">{t('decoder')}</div>
           <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2 font-medium transition-colors group-hover:text-black dark:group-hover:text-white">{t('decoder_description')}</div>
         </Link>
         
-        <div className="p-8 border-2 border-black/5 dark:border-white/5 border-dashed bg-neutral-50 dark:bg-neutral-900/50 rounded-2xl opacity-60 block transition-colors">
-          <div className="font-bold text-lg text-neutral-400 dark:text-neutral-500">{t('awaiting_deployment')}</div>
-          <div className="text-sm text-neutral-400 dark:text-neutral-500 mt-2 font-medium">{t('slot_available')}</div>
-        </div>
+        <Link href="/tools/media" className="group card-interactive p-8 block">
+          <div className="font-bold text-lg text-black dark:text-white transition-colors">{t('media_engine')}</div>
+          <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2 font-medium transition-colors group-hover:text-black dark:group-hover:text-white">{t('media_engine_description')}</div>
+        </Link>
+        
+        <Link href="/tools/qr" className="group card-interactive p-8 block">
+          <div className="font-bold text-lg text-black dark:text-white transition-colors">{t('qr')}</div>
+          <div className="text-sm text-neutral-500 dark:text-neutral-400 mt-2 font-medium transition-colors group-hover:text-black dark:group-hover:text-white">{t('qr_description')}</div>
+        </Link>
 
       </div>
     </div>

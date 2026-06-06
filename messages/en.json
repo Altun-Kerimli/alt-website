@@ -15,6 +15,8 @@
     "tools": "Tools",
     "decoder": "Decoder",
     "media": "Media",
+    "qr_code": "QR Code",
+
     "offline": "Offline",
     "online": "Online",
 
@@ -71,6 +73,8 @@
     "media_engine_description": "yt-dlp extraction and audio separation.",
     "decoder": "Decoder",
     "decoder_description": "Decimal and Morse Code conversion utilities.",
+    "qr": "QRCode",
+    "qr_description": "QR Code Generator and Reader",
 
     "awaiting_deployment": "Awaiting deployment...",
     "slot_available": "Slot available.",
@@ -119,6 +123,27 @@
     "placeholder_text": "Type payload here...",
     "output_morse": "Output Morse Code",
     "output_text": "Output Text ({language})"
+  },
+  "Qr": {
+    "title": "QRCode",
+    "description": "QR Code Generator and Reader",
+    "tools": "Tools",
+    "generate_url": "Generate URL",
+    "qr_reader": "QR Reader",
+    "placeholder": "Enter URL",
+    "input": "Input",
+    "output": "Output",
+    "generating": "Generating...",
+    "generate": "Generate QR",
+    "copy": "Copy QR",
+    "copied": "Copied",
+    "download_qr": "Download QR",
+    "awaiting_payload": "Awaiting Payload",
+    "upload_text": "Upload or Paste Image",
+    "upload_description": "Click to browse or CTRL+V to paste",
+    "processing": "Processing...",
+    "process_complete": "Processing Complete"
+
   },
   "Maintenance": {
     "title": "Under Maintenance",
