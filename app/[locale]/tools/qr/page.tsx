@@ -61,6 +61,9 @@ export default function QRCodePage() {
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Dynamically switch between local dev and production Render server
+  const BACKEND_URL = process.env.NEXT_PUBLIC_PYTHON_BACKEND || "http://localhost:8000";
+
   useEffect(() => setMounted(true), []);
 
   // --- CORE UPLOAD LOGIC ---
@@ -74,7 +77,8 @@ export default function QRCodePage() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:8000/api/qr/decode", {
+      // Updated to use dynamic URL
+      const res = await fetch(`${BACKEND_URL}/qr/api/qr/decode`, {
         method: "POST",
         body: formData,
       });
@@ -129,7 +133,8 @@ export default function QRCodePage() {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:8000/api/qr/generate", {
+      // Updated to use dynamic URL
+      const res = await fetch(`${BACKEND_URL}/qr/api/qr/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ payload: generateInput }),
@@ -276,4 +281,4 @@ export default function QRCodePage() {
       </div>
     </div>
   );
-} 
+}
