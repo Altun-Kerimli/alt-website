@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
@@ -20,8 +18,14 @@ export async function POST(req: Request) {
     const dataString = `${otp}.${expires}.${secret}`;
     const hash = crypto.createHash("sha256").update(dataString).digest("hex");
 
-    // 3. Send via Resend 
-    // Fallback to 'onboarding@resend.dev' if EMAIL_FORM isn't explicitly set in your variables
+    // 3. Initialize Resend safely inside the request handler
+    if (!process.env.RESEND_API_KEY) {
+      console.error("Missing RESEND_API_KEY environment variable.");
+      return NextResponse.json({ error: "Email provider misconfigured." }, { status: 500 });
+    }
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    // 4. Send via Resend 
     const senderEmail = process.env.EMAIL_FORM || "onboarding@resend.dev";
     const recipientEmail = process.env.ADMIN_EMAIL as string;
 
